@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
+  resources :staffs
+
+  resources :students
+
+  resources :faculties
+
   resources :users
+
+  resources :courses
+
+  resources :sections
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

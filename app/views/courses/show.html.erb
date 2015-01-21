@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Crn:</strong>
+  <%= @course.crn %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @course.description %>
+</p>
+
+<p>
+  <strong>Password hash:</strong>
+  <%= @course.password_hash %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @course.section_id %>
+</p>
+
+<p>
+  <strong>Faculty:</strong>
+  <%= @course.faculty_id %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

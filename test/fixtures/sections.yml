@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  admin: false
-  email: MyString
+  department: MyString
+  number: MyString
 
 two:
   name: MyString
-  admin: false
-  email: MyString
+  department: MyString
+  number: MyString

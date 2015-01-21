@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  crn: 1
+  description: MyText
+  password_hash: MyString
+  section_id: 1
+  faculty_id: 1
+
+two:
+  crn: 1
+  description: MyText
+  password_hash: MyString
+  section_id: 1
+  faculty_id: 1

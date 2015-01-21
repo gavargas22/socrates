@@ -11,12 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121002451) do
+ActiveRecord::Schema.define(version: 20150121221714) do
+
+  create_table "course_students", id: false, force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "student_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.integer  "crn"
+    t.text     "description"
+    t.string   "password_hash"
+    t.integer  "section_id"
+    t.integer  "faculty_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "faculties", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "faculties", ["user_id"], name: "index_faculties_on_user_id", unique: true
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "name"
+    t.string   "department"
+    t.string   "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "staffs", ["user_id"], name: "index_staffs_on_user_id", unique: true
+
+  create_table "students", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "students", ["user_id"], name: "index_students_on_user_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "email"
     t.boolean  "admin"
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
