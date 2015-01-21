@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # HAML Support
-gem 'haml'
+gem 'haml-rails'
 # Bootstrap SASS
 gem 'bootstrap-sass', '~> 3.3.3'
 # Sprockets include
