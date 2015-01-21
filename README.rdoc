@@ -1,28 +1,16 @@
-== README
+![Socrates](http://git.at.utep.edu/uploads/applications-development/socrates/2cc435953d/Socrates.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Welcome to the Socrates Project Page.
 
-Things you may want to cover:
+This site is being developed as an in house education enhancer through questions like the socratic method. The app was developed in Ruby on Rails
 
-* Ruby version
+## Documentation
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Models](app-models)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Copyright
+
+Socrates was developed by Alan Wernick, Sergio Guerrero, Mario Robles and Guillermo Vargas
+
+Copyright 2015 [Academic technologies](http://at.utep.edu/). See [MIT-LICENCE](#) for details.
