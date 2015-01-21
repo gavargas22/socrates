@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Crn:
+  = @course.crn
+%p
+  %strong Description:
+  = @course.description
+%p
+  %strong Password hash:
+  = @course.password_hash
+%p
+  %strong Section:
+  = @course.section_id
+%p
+  %strong Faculty:
+  = @course.faculty_id
+= link_to 'Edit', edit_course_path(@course)
+|
+= link_to 'Back', courses_path

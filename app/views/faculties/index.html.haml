@@ -1,0 +1,16 @@
+%p#notice= notice
+%h1 Listing Faculties
+%table
+  %thead
+    %tr
+      %th User
+      %th{:colspan => "3"}
+  %tbody
+    - @faculties.each do |faculty|
+      %tr
+        %td= faculty.user_id
+        %td= link_to 'Show', faculty
+        %td= link_to 'Edit', edit_faculty_path(faculty)
+        %td= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Faculty', new_faculty_path
