@@ -1,2 +1,8 @@
 .container
   %img{:href=>"#", :src => "/assets/socrates.png"}
+
+- if session[:user_id] && UTEPSSO.authenticated?(cookies[:UTEP_SE], cookies[:UTEP_SA])
+  - @current_user = current_user
+  = link_to "#{@current_user.name.split(' ').first}, Sign Out", signout_path, id: "sign_out"
+- else
+= link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}"
