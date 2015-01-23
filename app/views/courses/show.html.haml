@@ -1,21 +1,22 @@
-%p#notice= notice
+.container.spacing-from-header
+  %p#notice= notice
 
-%p
-  %b Crn:
-  = @course.crn
-%p
-  %b Description:
-  = @course.description
-%p
-  %b Password digest:
-  = @course.password_digest
-%p
-  %b Section:
-  = @course.section_id
-%p
-  %b Faculty:
-  = @course.faculty_id
+  %p
+    %b Crn:
+    = @course.crn
+  %p
+    %b Description:
+    = @course.description
+  %p
+    %b Password digest:
+    = @course.password_digest
+  %p
+    %b Section:
+    = @course.section_id
+  %p
+    %b Faculty:
+    = @course.faculty_id
 
-= link_to 'Edit', edit_course_path(@course)
-\|
-= link_to 'Back', courses_path
+  = link_to 'Edit', edit_course_path(@course)
+  \|
+  = link_to 'Back', courses_path

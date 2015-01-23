@@ -7,13 +7,17 @@ body {
 .header-menu {
 }
 .logo-wrapper {
-  width:250px;
+  // width:250px;
   // margin-left:auto;
   // margin-right:auto;
 }
-.logo-wrapper img {
+.navbar-brand img {
   max-width: 100%;
   height:auto;
+}
+a.navbar-brand {
+  padding-top:0;
+  width:250px;
 }
 .home-header .btn-primary {
   background-color: white;
