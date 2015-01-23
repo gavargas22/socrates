@@ -54,6 +54,15 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    student = Student.find_by_user_id(@user)
+    student.destroy if student
+
+    faculty = Faculty.find_by_user_id(@user)
+    faculty.destroy if faculty
+
+    staff = Staff.find_by_user_id(@user)
+    staff.destroy if staff
+
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
