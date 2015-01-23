@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :students
   end
 
-  resources :sections
+  resources :sections do
+    resources :courses
+  end
 
   put 'courses/:id/enroll' => 'courses#enroll', as: 'enroll'
 

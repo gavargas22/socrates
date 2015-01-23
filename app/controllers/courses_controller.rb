@@ -4,7 +4,11 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    if params[:section_id].nil?
+      @courses = Course.all
+    else
+      @courses = Section.find_by_id(params[:section_id]).courses
+    end
   end
 
   # GET /courses/1
@@ -55,6 +59,9 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    puts params
+    @course.section_id = params[:section_id]
+
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully created.' }

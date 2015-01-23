@@ -8,6 +8,9 @@
 %p
   %strong Number:
   = @section.number
+
+= link_to 'New Course', new_section_course_path(@section)
+|
 = link_to 'Edit', edit_section_path(@section)
 |
 = link_to 'Back', sections_path
