@@ -22,7 +22,7 @@
   .modal-dialog
     .modal-content
       .modal-header
-        %h4.modal-title{ id: 'ModalLabel'}
+        %h4.modal-title{ id: 'ModalLabel' }
           = @course.section.name
       .modal-body
         =render 'enroll' 
@@ -30,6 +30,6 @@
         %button{ type: "button", class: "btn btn-default", 'data-dismiss' => "modal" } Close
         %button{ type: "button", class: "btn btn-primary"} Save Changes
         
-= link_to 'Edit', edit_course_path(@course)
+= link_to 'Edit', edit_section_course_path(id: @course)
 \|
-= link_to 'Back', courses_path
+= link_to 'Back', section_path(@course.section)

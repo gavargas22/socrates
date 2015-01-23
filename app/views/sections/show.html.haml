@@ -9,6 +9,15 @@
   %strong Number:
   = @section.number
 
+
+%h3 
+  Courses
+  -@section.courses.each do |course|
+    %p 
+      = course.crn
+      = link_to 'Show', section_course_path(@section, course)
+      = link_to 'Edit', edit_section_course_path(@section, course)
+
 = link_to 'New Course', new_section_course_path(@section)
 |
 = link_to 'Edit', edit_section_path(@section)

@@ -20,8 +20,9 @@
         %td= course.password_digest
         %td= course.section_id
         %td= course.faculty_id
-        %td= link_to 'Show', course
-        %td= link_to 'Edit', edit_course_path(course)
-        %td= link_to 'Destroy', course, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', section_course_path(id: course)
+        %td= link_to 'Edit', edit_section_course_path(id: course)
+        %td= link_to 'Destroy', section_course_path(id: course), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
+= link_to 'Back', section_path(params[:section_id])

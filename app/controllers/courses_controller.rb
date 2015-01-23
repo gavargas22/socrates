@@ -36,14 +36,16 @@ class CoursesController < ApplicationController
     authenticated = @course.authenticate(params[:password])
     @course.errors.add(:password, "is incorrect") if !authenticated
 
-    puts "Authenticated #{authenticated}"
-    puts @course.errors.count
-
     # Fetch current student
     student = Student.first #current_user
 
+    # Check if the user was enrolled previously
+    student_previously_enrolled = @course.students.include?(student)
+
     respond_to do |format|
-      if @course.errors.empty? && @course.students << student # Reload if errors exist
+      if student_previously_enrolled
+        format.html { redirect_to course_path, notice: "Student is already registered"}
+      elsif @course.errors.empty? && @course.students << student # Reload if errors exist
         format.html { redirect_to course_students_path(@course), notice: "Student was successfully registered"}
       else
         format.html { render :sign_up }
@@ -64,7 +66,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to section_course_path(id: @course), notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -92,7 +94,7 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+      format.html { redirect_to section_courses_path, notice: 'Course was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
