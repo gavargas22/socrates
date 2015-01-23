@@ -1,4 +1,12 @@
-=form_tag( enroll_path, method: :put ) do
+=form_for @course, :url => enroll_path, :method => :put do
+  - puts @course.errors.count
+  - if @course.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
+      %ul
+        - @course.errors.full_messages.each do |msg|
+          %li= msg
+
   =password_field_tag :password
   =password_field_tag :password_confirmation
   =submit_tag "Enroll"

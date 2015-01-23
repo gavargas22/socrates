@@ -22,11 +22,24 @@ class CoursesController < ApplicationController
   end
 
   def enroll
-    # Get user trying to register
-    student = Student.find_by_id(params[:user_id])
+    # Error if password is blank
+    @course.errors.add(:password, "can not be blank") if params[:password].empty?
+
+    # Error if password confirmation is not same as password
+    @course.errors.add(:password_confirmation, "does not match password") if params[:password_confirmation] != params[:password]
+
+    # Is password correct?
+    authenticated = @course.authenticate(params[:password])
+    @course.errors.add(:password, "is incorrect") if !authenticated
+
+    puts "Authenticated #{authenticated}"
+    puts @course.errors.count
+
+    # Fetch current student
+    student = Student.first #current_user
 
     respond_to do |format|
-      if @course.authenticate(params[:password]) && @course.students << student #Check if correct password, and if it has been already inserted
+      if @course.errors.empty? && @course.students << student # Reload if errors exist
         format.html { redirect_to course_students_path(@course), notice: "Student was successfully registered"}
       else
         format.html { render :sign_up }
@@ -34,7 +47,7 @@ class CoursesController < ApplicationController
     end
   end
 
-  # POST /courses/1/students/1
+  # GET /courses/1/students/1
   def sign_up
   end
 
