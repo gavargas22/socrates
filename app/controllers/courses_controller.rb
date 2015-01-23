@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :sign_up, :enroll]
 
   # GET /courses
   # GET /courses.json
@@ -21,11 +21,27 @@ class CoursesController < ApplicationController
   def edit
   end
 
+  def enroll
+    # Get user trying to register
+    student = Student.find_by_id(params[:user_id])
+
+    respond_to do |format|
+      if @course.authenticate(params[:password]) && @course.students << student #Check if correct password, and if it has been already inserted
+        format.html { redirect_to course_students_path(@course), notice: "Student was successfully registered"}
+      else
+        format.html { render :sign_up }
+      end
+    end
+  end
+
+  # POST /courses/1/students/1
+  def sign_up
+  end
+
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
