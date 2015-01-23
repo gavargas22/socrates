@@ -13,8 +13,7 @@ Rails.application.routes.draw do
 
   resources :sections
 
-  get 'courses/:id/sign_up' => 'courses#sign_up', as: 'course_sign_up'
-  put 'courses/:id/sign_up' => 'courses#enroll', as: 'enroll'
+  put 'courses/:id/enroll' => 'courses#enroll', as: 'enroll'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -16,8 +16,18 @@
   %b Faculty:
   = @course.faculty_id
 
-= link_to 'Sign Up', course_sign_up_path(@course)
+%button.btn.btn-primary.btn-sm{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#enroll_dialog' } Sign Up
 
+.modal.fade{ id: 'enroll_dialog', tabindex: '-1', role: 'dialog', 'aria-labelledby' => 'ModalLabel', 'aria-hidden' => 'true' }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title{ id: 'ModalLabel'} Modal Title
+      .modal-body
+        =render 'enroll' 
+      .modal-footer
+        %button{ type: "button", class: "btn btn-default", 'data-dismiss' => "modal" } Close
+        %button{ type: "button", class: "btn btn-primary"} Save changes
 = link_to 'Edit', edit_course_path(@course)
 \|
 = link_to 'Back', courses_path
