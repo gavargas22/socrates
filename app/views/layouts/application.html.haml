@@ -7,4 +7,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    - if current_user || request.env['PATH_INFO'] == '/'
+      = yield
+    - else
+      = render '/layouts/unathorized'
