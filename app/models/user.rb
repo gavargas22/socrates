@@ -1,6 +1,8 @@
 require 'utep_sso'
 
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :username, use: :slugged
   #The table is the users table so load it.
   self.table_name = "users"
 
@@ -16,6 +18,8 @@ class User < ActiveRecord::Base
     user = User.new
     user.name = sso_response[:full_name]
     user.email = sso_response[:email_address]
+    user.username = user.email[/[^@]+/]
+    user.slug = user.email[/[^@]+/]
     role = sso_response[:role_value].to_i
     user.save!
 
