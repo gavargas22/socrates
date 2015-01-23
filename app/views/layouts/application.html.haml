@@ -28,7 +28,8 @@
               %a{:href => "./"}
                 Fixed top
                 %span.sr-only (current)
-    - if current_user || request.env['PATH_INFO'] == '/'
-      = yield
-    - else
-      = render '/layouts/unathorized'
+    .container-fluid
+      - if current_user || request.env['PATH_INFO'] == '/'
+        = yield
+      - else
+        = render '/layouts/unathorized'

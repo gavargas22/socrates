@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.5'
 
-#UTEP SSO
+# UTEP SSO
 gem 'utep_sso'
 # Use savon for SOAP client operation
 gem 'savon', '~> 2.8.0'
