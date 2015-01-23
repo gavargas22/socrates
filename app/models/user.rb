@@ -10,10 +10,11 @@ class User < ActiveRecord::Base
   def self.from_sso(utep_cookie, utep_salt)
     # Save the response of the utep_sso gem in a variable
     sso_response = UTEPSSO.authenticate(utep_cookie, utep_salt)
+
     # check if the user when found by email_address property exists and if it does return the user
     user = User.find_by_email(sso_response[:email_address])
-
     return user if user
+
     #Else create a new user object with the information stored in the sso_response and save to the database.
     user = User.new
     user.name = sso_response[:full_name]
@@ -24,7 +25,6 @@ class User < ActiveRecord::Base
     user.save!
 
     # This is the part where we create the user objects of type student, staff, or faculty.
-
     if((role & 16) == 16)
       student = Student.new
       student.user_id = user.id
