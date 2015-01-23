@@ -8,6 +8,5 @@ class ApplicationController < ActionController::Base
   def current_user
     if(UTEPSSO.authenticated(cookies[:UTEP_SE]), cookies[:UTEP_SA])
       User.from_sso(cookies[:UTEP_SE], cookies[:UTEP_SA])
-    end
   end
 end

@@ -7,9 +7,15 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :courses
+  resources :courses do
+    resources :students
+  end
 
-  resources :sections
+  resources :sections do
+    resources :courses
+  end
+
+  put 'courses/:id/enroll' => 'courses#enroll', as: 'enroll'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

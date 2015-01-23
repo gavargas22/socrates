@@ -1,7 +1,8 @@
 = form_for(@section) do |f|
   -if @section.errors.any?
     #error_explanation
-      %h2= pluralize(@section.errors.count, "error")
+      %h2
+        = pluralize(@section.errors.count, "error") 
         prohibited this section from being saved:
 
       %ul
