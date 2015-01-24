@@ -1,7 +1,14 @@
 .container.spacing-from-header
   %h1 Listing courses
 
-  
+  - @courses.each do |course|
+    .course-wrapper{:style => "background-image: url(#{image_path("oscilloscope.jpg")});background-repeat:no-repeat;background-size:cover;"}
+      .course-title
+        = course.description
+      .course-crn
+        = course.crn
+
+
 
   -# %table
   -#   %thead
