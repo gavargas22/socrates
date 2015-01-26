@@ -1,12 +1,15 @@
 .container.spacing-from-header
-  %h1 Listing courses
+  %h1 Courses
 
   - @courses.each do |course|
-    .course-wrapper{:style => "background-image: url(#{image_path("oscilloscope.jpg")});background-repeat:no-repeat;background-size:cover;"}
-      .course-title
-        = course.description
-      .course-crn
-        = course.crn
+    .course-wrapper-link
+    = link_to course, {:style => "text-decoration:none;"} do
+      .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{image_path("oscilloscope.jpg")});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;"}
+        .course-title
+          = course.description
+        .course-crn
+          CRN
+          = course.crn
 
 
 
