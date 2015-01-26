@@ -25,6 +25,9 @@
     = f.label :faculty_id
     = f.number_field :faculty_id
   .field
-    =f.file_field :course_avatar
+    .course-avatar-block
+      %h4 Current Course Avatar
+      = image_tag(@course.course_avatar_url)
+      = f.file_field :course_avatar
   .actions
     = f.submit 'Save'
