@@ -1,5 +1,12 @@
 .container.spacing-from-header
   %h1 Courses
+  .row{:style => "padding-left:0;padding-right:0;margin-left:auto;margin-right:auto;"}
+    .col-lg-6{:style => "padding-left:0;padding-right:0;"}
+      .input-group{:style => "padding-bottom:20px;"}
+        %input.form-control{:placeholder => "Search Courses...", :type => "text"}
+          %span.input-group-btn
+            %button.btn.btn-default{"aria-label" => "Left Align", :type => "button"}
+              %span.fa.fa-search{"aria-hidden" => "true"}
 
   - @courses.each do |course|
     .course-wrapper-link
@@ -10,8 +17,6 @@
         .course-crn
           CRN
           = course.crn
-
-
 
   -# %table
   -#   %thead
