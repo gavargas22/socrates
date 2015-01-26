@@ -1,28 +1,42 @@
 .container.spacing-from-header
-  %h1 Listing courses
-  %table
-    %thead
-      %tr
-        %th Crn
-        %th Description
-        %th Password digest
-        %th Section
-        %th Faculty
-        %th
-        %th
-        %th
-        
-    %tbody
-      - @courses.each do |course|
-        %tr
-          %td= course.crn
-          %td= course.description
-          %td= course.password_digest
-          %td= course.section_id
-          %td= course.faculty_id
-          %td= link_to 'Show', section_course_path(id: course)
-          %td= link_to 'Edit', edit_section_course_path(id: course)
-          %td= link_to 'Destroy', section_course_path(id: course), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %h1 Courses
 
-  %br
-= link_to 'Back', section_path(params[:section_id])
+  - @courses.each do |course|
+    .course-wrapper-link
+    = link_to course, {:style => "text-decoration:none;"} do
+      .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{image_path("oscilloscope.jpg")});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;"}
+        .course-title
+          = course.description
+        .course-crn
+          CRN
+          = course.crn
+
+
+
+  -# %table
+  -#   %thead
+  -#     %tr
+  -#       %th Crn
+  -#       %th Description
+  -#       %th Password digest
+  -#       %th Section
+  -#       %th Faculty
+  -#       %th
+  -#       %th
+  -#       %th
+  -#
+  -#   %tbody
+  -#     - @courses.each do |course|
+  -#       %tr
+  -#         %td= course.crn
+  -#         %td= course.description
+  -#         %td= course.password_digest
+  -#         %td= course.section_id
+  -#         %td= course.faculty_id
+  -#         %td= link_to 'Show', course
+  -#         %td= link_to 'Edit', edit_course_path(course)
+  -#         %td= link_to 'Destroy', course, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  -#
+  -# %br
+  -#
+  = link_to 'New Course', new_course_path
