@@ -28,6 +28,8 @@ gem 'angularjs-rails'
 # Avatars with carrierwave
 gem "rmagick"
 gem "carrierwave"
+# Font awesome support
+gem "font-awesome-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
