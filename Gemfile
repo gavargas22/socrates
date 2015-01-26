@@ -25,6 +25,11 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem "sprockets-rails"
 # Install AngularJS
 gem 'angularjs-rails'
+# Avatars with carrierwave
+gem "rmagick"
+gem "carrierwave"
+# Font awesome support
+gem "font-awesome-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

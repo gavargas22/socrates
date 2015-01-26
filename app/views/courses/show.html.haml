@@ -16,6 +16,7 @@
   %p
     %b Faculty:
     = @course.faculty_id
+    = image_tag @course.course_avatar_url.to_s
 
 %button.btn.btn-primary.btn-sm{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#enroll_dialog' } Sign Up
 

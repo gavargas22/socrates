@@ -16,5 +16,9 @@
 !/log/.keep
 /tmp
 
+# Ignore uploads
+
+/public/uploads
+
 # Git Ignore
 Gemfile.lock
