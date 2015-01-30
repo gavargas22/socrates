@@ -10,14 +10,21 @@
 
   - @courses.each do |course|
     .course-wrapper-link
-    = link_to course, {:style => "text-decoration:none;"} do
-      .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
-        .course-title
-          = course.description
-        .course-crn
-          CRN
-          = course.crn
-
+      = link_to course, {:style => "text-decoration:none;"} do
+        .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
+          .course-title
+            = course.description
+          .course-crn
+            CRN:
+            = course.crn
+      .course-destroy-button
+        = link_to edit_course_path(course) do
+          %span.fa.fa-pencil-square-o{"aria-hidden" => "true", :style => "color:#ffffff;padding:5px;"}
+        = link_to course, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+          %span.fa.fa-trash-o{"aria-hidden" => "true", :style => "color:#ffffff;padding:5px;"}
+  .course-create-btn
+    = link_to new_course_path do
+      %span.fa.fa-plus{"aria-hidden" => "true", :style => "color:#ffffff;padding:5px;"}
   -# %table
   -#   %thead
   -#     %tr
@@ -44,4 +51,3 @@
   -#
   -# %br
   -#
-  = link_to 'New Course', new_course_path

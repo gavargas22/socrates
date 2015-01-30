@@ -25,6 +25,8 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    #Automatically set slug of the course upon creation.
+    @course.slug = @course.crn
 
     respond_to do |format|
       if @course.save

@@ -11,7 +11,7 @@
   text-decoration:none;
 }
 .course-wrapper {
-  margin-bottom:20px;
+  margin-bottom:2px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -22,4 +22,27 @@
 .course-avatar-block img {
   max-width:100%;
   height:auto;
+}
+.course-destroy-button {
+  margin-bottom:20px;
+  text-align:right;
+  margin-right: 5px;
+  margin-top:-23px;
+}
+.course-create-btn a {
+  padding:10px 50px;
+  background-color: #F5C944;
+  border-width: 0 0 6px 0;
+  border-color: #F5C944;
+  border-style: solid;
+}
+.course-create-btn {
+  text-align:center;
+}
+.course-create-btn a:hover {
+  padding:10px 50px;
+  background-color: #F5C944;
+  border-width: 0 0 6px 0;
+  border-color: #F5C944;
+  border-style: solid;
 }
