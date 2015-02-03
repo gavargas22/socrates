@@ -31,6 +31,16 @@
 
   .course-question-block
     %h1 Active Questions
+    .course-admin-actions
+      .btn-toolbar{:role => "toolbar"}
+        .btn-group
+          %button.btn.btn-default{"data-placement" => "left", "data-toggle" => "tooltip", :title => "Add Question", "aria-label" => "Left Align", :type => "button"}
+            %span.fa.fa-plus{"aria-hidden" => "true"}
+          %button.btn.btn-default{"aria-label" => "Center Align", :type => "button"}
+            %span.fa.fa-users{"aria-hidden" => "true"}
+          %button.btn.btn-default{"aria-label" => "Right Align", :type => "button"}
+            %span.fa.fa-history{"aria-hidden" => "true"}
+
 
   = link_to 'Edit', edit_course_path(@course)
   \|
