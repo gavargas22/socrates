@@ -1,21 +1,19 @@
 .container.spacing-from-header
   %p#notice= notice
 
-  %p
-    %b Crn:
-    = @course.crn
-  %p
-    %b Description:
+  .course-description
     = @course.description
-  %p
-    %b Password digest:
-    = @course.password_digest
-  %p
+    %hr
+  .course-crn
+    = @course.crn
+
+  .course-section-id
     %b Section:
     = @course.section_id
-  %p
+  .course-faculty
     %b Faculty:
     = @course.faculty_id
+  .course-avatar
     = image_tag @course.course_avatar_url.to_s
 
   = link_to 'Edit', edit_course_path(@course)
