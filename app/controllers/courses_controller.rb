@@ -61,8 +61,10 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-    puts params
+    # puts params
     @course.section_id = params[:section_id]
+    #Automatically set slug of the course upon creation.
+    @course.slug = @course.crn
 
     respond_to do |format|
       if @course.save
@@ -102,11 +104,11 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      @course = Course.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:crn, :description, :password, :password_confirmation, :section_id, :faculty_id, :course_avatar)
+      params.require(:course).permit(:crn, :description, :password, :password_confirmation, :section_id, :faculty_id, :course_avatar, :slug, :title)
     end
 end
