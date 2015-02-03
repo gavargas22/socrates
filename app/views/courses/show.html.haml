@@ -1,20 +1,36 @@
 .container.spacing-from-header
+  .course-navigation.container
+    .nav-buttons
+      =link_to 'Back', courses_path
   %p#notice= notice
+
+  .course-title
+    -# = @course.title
+    .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{@course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
+      .course-title
+        = @course.title
+  .course-crn
+    CRN
+    = @course.crn
+    -# %hr
 
   .course-description
     = @course.description
-    %hr
-  .course-crn
-    = @course.crn
 
-  .course-section-id
-    %b Section:
-    = @course.section_id
-  .course-faculty
-    %b Faculty:
-    = @course.faculty_id
-  .course-avatar
-    = image_tag @course.course_avatar_url.to_s
+
+  -# .course-section-id
+  -#   %b Section:
+  -#   = @course.section_id
+  -# .course-faculty
+  -#   %b Faculty:
+  -#   = @course.faculty_id
+  -# .course-avatar
+  -#   = image_tag @course.course_avatar_url.to_s
+
+  %hr
+
+  .course-question-block
+    %h1 Active Questions
 
   = link_to 'Edit', edit_course_path(@course)
   \|
