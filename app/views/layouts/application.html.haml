@@ -24,8 +24,10 @@
               %a{:href => "/"} Home
             %li
               %a{:href => "../navbar-static-top/"} Static top
-            %li.active
+            %li
               %a{:href => "./"}
                 Fixed top
                 %span.sr-only (current)
+            %li
+              = link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}"
     = yield
