@@ -30,19 +30,45 @@
   margin-top:-23px;
 }
 .course-create-btn a {
-  padding:10px 50px;
+  padding:10px 70px;
   background-color: #F5C944;
   border-width: 0 0 6px 0;
-  border-color: #F5C944;
+  border-color: #E0AC0C;
   border-style: solid;
 }
 .course-create-btn {
   text-align:center;
 }
 .course-create-btn a:hover {
-  padding:10px 50px;
-  background-color: #F5C944;
+  padding:10px 70px;
+  background-color: #E0AC0C;
   border-width: 0 0 6px 0;
-  border-color: #F5C944;
+  border-color: #E0AC0C;
   border-style: solid;
+}
+.course-crn {
+  font-size: 20px;
+  font-weight:bold;
+}
+
+.course-description {
+  font-size: 40px;
+  font-weight:bold;
+  line-height: 40px;
+}
+
+.course-section-id {
+
+}
+
+.course-faculty {
+
+}
+
+.course-avatar {
+
+}
+.course-avatar img {
+  max-width: 100%;
+  height:auto;
 }
