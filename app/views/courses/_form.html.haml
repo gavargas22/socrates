@@ -1,30 +1,54 @@
-= form_for @course, url: section_courses_path do |f|
-  - if @course.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
-      %ul
-        - @course.errors.full_messages.each do |msg|
-          %li= msg
+.container
+  = form_for @course do |f|
+    - if @course.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
+        %ul
+          - @course.errors.full_messages.each do |msg|
+            %li= msg
 
-  .field
-    = f.label :crn
-    = f.number_field :crn
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :password
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  .field
-    = f.label :faculty_id
-    = f.number_field :faculty_id
-  .field
-    .course-avatar-block
-      %h4 Current Course Avatar
-      = image_tag(@course.course_avatar_url)
-      = f.file_field :course_avatar
-  .actions
-    = f.submit 'Save'
+    .row
+      .col-sm-4
+        .form-group
+          = f.label :crn, "CRN"
+          = f.number_field :crn, :class => "form-control", :placeholder => "CRN Number"
+
+        .field
+          .form-group
+            = f.label :title, "Course Name"
+            = f.text_field :title, :class => "form-control", :placeholder => "History of the United States from 1866"
+
+        .field
+          .form-group
+            = f.label :description, "Description"
+            = f.text_area :description, :class => "form-control", :placeholder => "Course Description"
+
+        .field
+          .form-group
+            = f.label :password, "Course access password"
+            = f.password_field :password, :class => "form-control", :placeholder => "history101"
+
+        -# .field
+        -#   .form-group
+        -#     = f.label :password_confirmation
+        -#     = f.password_field :password_confirmation
+
+        -# .field
+        -#   .form-group
+        -#     = f.label :section_id
+        -#     = f.number_field :section_id
+        -#
+        -# .field
+        -#   .form-group
+        -#     = f.label :faculty_id
+        -#     = f.number_field :faculty_id
+
+        .field
+          .form-group
+            .course-avatar-block
+              %h4 Current Course Avatar
+              = image_tag(@course.course_avatar_url)
+              = f.file_field :course_avatar
+        .actions
+          .form-group
+            = f.submit 'Go', :class => "button btn btn-warning"

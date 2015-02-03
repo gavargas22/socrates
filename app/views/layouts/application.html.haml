@@ -1,7 +1,8 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title Socrates
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -24,10 +25,13 @@
               %a{:href => "/"} Home
             %li
               %a{:href => "../navbar-static-top/"} Static top
-            %li.active
+            %li
               %a{:href => "./"}
                 Fixed top
                 %span.sr-only (current)
+            %li
+              = link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}"
+              
     .container-fluid
       - if current_user || request.env['PATH_INFO'] == '/'
         = yield

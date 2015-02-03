@@ -1,22 +1,46 @@
 .container.spacing-from-header
+  .course-navigation.container
+    .nav-buttons
+      =link_to 'Back', courses_path
   %p#notice= notice
 
-  %p
-    %b Crn:
+  .course-title
+    -# = @course.title
+    .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{@course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
+      .course-title
+        = @course.title
+  .course-crn
+    CRN
     = @course.crn
-  %p
-    %b Description:
+    -# %hr
+
+  .course-description
     = @course.description
-  %p
-    %b Password digest:
-    = @course.password_digest
-  %p
-    %b Section:
-    = @course.section_id
-  %p
-    %b Faculty:
-    = @course.faculty_id
-    = image_tag @course.course_avatar_url.to_s
+
+
+  -# .course-section-id
+  -#   %b Section:
+  -#   = @course.section_id
+  -# .course-faculty
+  -#   %b Faculty:
+  -#   = @course.faculty_id
+  -# .course-avatar
+  -#   = image_tag @course.course_avatar_url.to_s
+
+  %hr
+
+  .course-question-block
+    %h1 Active Questions
+    .course-admin-actions
+      .btn-toolbar{:role => "toolbar"}
+        .btn-group
+          %button.btn.btn-default{"data-placement" => "left", "data-toggle" => "tooltip", :title => "Add Question", "aria-label" => "Left Align", :type => "button"}
+            %span.fa.fa-plus{"aria-hidden" => "true"}
+          %button.btn.btn-default{"aria-label" => "Center Align", :type => "button"}
+            %span.fa.fa-users{"aria-hidden" => "true"}
+          %button.btn.btn-default{"aria-label" => "Right Align", :type => "button"}
+            %span.fa.fa-history{"aria-hidden" => "true"}
+
 
 %button.btn.btn-primary.btn-sm{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#enroll_dialog' } Sign Up
 
