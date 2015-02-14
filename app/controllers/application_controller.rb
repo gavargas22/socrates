@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  # def current_user
-  #   if(UTEPSSO.authenticated(cookies[:UTEP_SE]), cookies[:UTEP_SA])
-  #     User.from_sso(cookies[:UTEP_SE], cookies[:UTEP_SA])
-  #   end
-  # end
+  def current_user
+    if(UTEPSSO.authenticated(cookies[:UTEP_SE], cookies[:UTEP_SA]))
+      User.from_sso(cookies[:UTEP_SE], cookies[:UTEP_SA])
+    end
+  end
 end
