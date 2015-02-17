@@ -31,9 +31,10 @@
                 %span.sr-only (current)
             %li
               = link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}"
-              
+
     .container-fluid
-      - if current_user || request.env['PATH_INFO'] == '/'
-        = yield
-      - else
-        = render '/layouts/unathorized'
+      -# - if current_user || request.env['PATH_INFO'] == '/'
+      -#   = yield
+      -# - else
+      -#   = render '/layouts/unathorized'
+      = yield
