@@ -27,21 +27,6 @@
   -# .course-avatar
   -#   = image_tag @course.course_avatar_url.to_s
 
-  %hr
-
-  .course-question-block
-    %h1 Active Questions
-    .course-admin-actions
-      .btn-toolbar{:role => "toolbar"}
-        .btn-group
-          %button.btn.btn-default{"data-placement" => "left", "data-toggle" => "tooltip", :title => "Add Question", "aria-label" => "Left Align", :type => "button"}
-            %span.fa.fa-plus{"aria-hidden" => "true"}
-          %button.btn.btn-default{"aria-label" => "Center Align", :type => "button"}
-            %span.fa.fa-users{"aria-hidden" => "true"}
-          %button.btn.btn-default{"aria-label" => "Right Align", :type => "button"}
-            %span.fa.fa-history{"aria-hidden" => "true"}
-
-
 %button.btn.btn-primary.btn-sm{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#enroll_dialog' } Sign Up
 
 .modal.fade{ id: 'enroll_dialog', tabindex: '-1', role: 'dialog', 'aria-labelledby' => 'ModalLabel', 'aria-hidden' => 'true' }
@@ -51,11 +36,12 @@
         %h4.modal-title{ id: 'ModalLabel' }
           -# = @course.section.id
       .modal-body
-        =render 'enroll'
+        = render 'enroll'
       .modal-footer
         %button{ type: "button", class: "btn btn-default", 'data-dismiss' => "modal" } Close
-        %button{ type: "button", class: "btn btn-primary"} Save Changes
+        %button{ type: "button", class: "btn btn-primary"} Sign Up
+
+
 
 -# = link_to 'Edit', edit_section_course_path(id: @course)
-\|
 -# = link_to 'Back', section_path(@course.section)
