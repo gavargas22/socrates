@@ -66,6 +66,7 @@ class CoursesController < ApplicationController
     #Automatically set slug of the course upon creation.
     @course.slug = @course.crn
 
+
     respond_to do |format|
       if @course.save
         format.html { redirect_to section_course_path(id: @course), notice: 'Course was successfully created.' }

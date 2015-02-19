@@ -1,25 +1,26 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = @section.name
-%p
-  %strong Department:
-  = @section.department
-%p
-  %strong Number:
-  = @section.number
+.container.spacing-from-header
+  %p#notice= notice
+  %p
+    %strong Name:
+    = @section.name
+  %p
+    %strong Department:
+    = @section.department
+  %p
+    %strong Number:
+    = @section.number
 
 
-%h3 
-  Courses
-  -@section.courses.each do |course|
-    %p 
-      = course.crn
-      = link_to 'Show', section_course_path(@section, course)
-      = link_to 'Edit', edit_section_course_path(@section, course)
+  %h3
+    Courses
+    -@section.courses.each do |course|
+      %p
+        = course.crn
+        = link_to 'Show', section_course_path(@section, course)
+        = link_to 'Edit', edit_section_course_path(@section, course)
 
-= link_to 'New Course', new_section_course_path(@section)
-|
-= link_to 'Edit', edit_section_path(@section)
-|
-= link_to 'Back', sections_path
+  = link_to 'New Course', new_section_course_path(@section)
+  |
+  = link_to 'Edit', edit_section_path(@section)
+  |
+  = link_to 'Back', sections_path
