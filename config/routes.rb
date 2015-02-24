@@ -7,13 +7,27 @@ Rails.application.routes.draw do
 
 	resources :users
 
-	resources :courses do
+	# Sessions
+	get    'login'            => 'sessions#new'
+	get    'create_session'   => 'sessions#create'
+	delete 'logout'           => 'sessions#destroy'
+
+	# resources :courses do
+	#   resources :students
+	# end
+
+	resources :subjects, shallow: true do
+		resources :courses
+	end
+
+	resources :courses, shallow: true do
+		resources :sections
+	end
+
+	resources :sections, shallow: true do
 		resources :students
 	end
 
-	resources :sections do
-		resources :courses
-	end
 
 	put 'courses/:id/enroll' => 'courses#enroll', as: 'enroll'
 
