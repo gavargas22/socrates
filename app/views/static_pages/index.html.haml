@@ -1,15 +1,15 @@
 .home-teaser-image
-  .logo-wrapper
-    %img{:src => "/assets/socrates_black.png"}
-  .home-app-description Socrates is a real-time learning analytics platform for teachers and students.
-  %p{:style => "text-align: center; margin-top:20px;"}
-    - if session[:user_id] && UTEPSSO.authenticated?(cookies[:UTEP_SE], cookies[:UTEP_SA])
-      - @current_user = current_user
-      = link_to "#{@current_user.name.split(' ').first}, Sign Out", signout_path, id: "sign_out", :class => "custom-home-button"
-    - else
-      = link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}", :class => "custom-home-button"
+	.logo-wrapper
+		%img{:src => "/assets/socrates_black.png"}
+	.home-app-description Socrates is a real-time learning analytics platform for teachers and students.
+	%p{:style => "text-align: center; margin-top:20px;"}
+		- if session[:user_id] && UTEPSSO.authenticated?(cookies[:UTEP_SE], cookies[:UTEP_SA])
+			- @current_user = current_user
+			= link_to "#{@current_user.name.split(' ').first}, Sign Out", signout_path, id: "sign_out", :class => "custom-home-button"
+		- else
+			= link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}", :class => "custom-home-button"
 
 .intro-text-wrapper.spacing-from-header
-  .container.info
-    %h2 Get real-time information on how the class is doing.
-    %img{:src => "/assets/rubymotion-factory.gif"}
+	.container.info{:style => "text-align:center;"}
+		%h2 Get real-time information on how the class is doing.
+		%img{:src => "/assets/rubymotion-factory.gif"}
