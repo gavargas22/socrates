@@ -16,5 +16,8 @@
 !/log/.keep
 /tmp
 
+# Ignore Vagrant resources
+/.vagrant
+
 # Git Ignore
 Gemfile.lock
