@@ -7,6 +7,27 @@ This site is being developed as an in house education enhancer through questions
 ## Vagrant
 
 Rubento is used as the development enviornment. Documentation can be found [here](https://github.com/awernick/rubento-box)
+
+To start the Rubento server
+```shell
+# Fire up Vagrant box
+vagrant up
+vagrant ssh
+
+# Start Rails server
+cd /vagrant
+rvmsudo rails server -b 0.0.0.0 -p 80
+```
+The server is accessible at
+```
+192.168.33.10
+```
+
+But in order to use SSO features, add this to your /etc/hosts file
+```
+192.168.33.10     dev.socrates.utep.edu
+```
+The webapp will now be available at `dev.socrates.utep.edu` with full SSO capabilities.
 ## Documentation
 
 [Models](app-models)
