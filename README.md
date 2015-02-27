@@ -4,6 +4,9 @@
 
 This site is being developed as an in house education enhancer through questions like the socratic method. The app was developed in Ruby on Rails
 
+## Vagrant
+
+Rubento is used as the development enviornment. Documentation can be found [here](https://github.com/awernick/rubento-box)
 ## Documentation
 
 [Models](app-models)
