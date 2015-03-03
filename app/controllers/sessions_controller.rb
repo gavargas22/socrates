@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 	  if user
 	    session[:user_id] = user.id
 	  end
-	  redirect_to root_url
+	  redirect_to dashboard_index_path
 	end
 
 	def destroy
