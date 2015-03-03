@@ -1,16 +1,19 @@
 class SessionsController < ApplicationController
-	def create
-	  user = User.from_sso(cookies[:UTEP_SE], cookies[:UTEP_SA])
-	  if user
-	    session[:user_id] = user.id
-	  end
-	  redirect_to dashboard_index_path
-	end
+  def new
+    redirect_to "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}"
+  end
 
-	def destroy
-	  session[:user_id] = nil
-	  UTEPSSO.deauthenticate(cookies[:UTEP_SE], cookies[:UTEP_SA])
-	  redirect_to root_url
-	end
+  # Create a new session using UTEPSSO
+  def create
+    user = User.from_sso(cookies[:UTEP_SE], cookies[:UTEP_SA])
+    log_in(user) if user
+    redirect_to root_url
+  end
 
+  # Terminate current session and deauthenticate from SSO system
+  def destroy
+    log_out
+    UTEPSSO.deauthenticate(cookies[:UTEP_SE], cookies[:UTEP_SA])
+    redirect_to root_url
+  end
 end
