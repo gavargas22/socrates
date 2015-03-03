@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 	#Single Sign On Routes
 	match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-	get    'login' => 'sessions#log_in'
+	get   'login' => 'sessions#create'
 
 	#Quizzes and Survey System
 	mount Rapidfire::Engine => "/questions"
