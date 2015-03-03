@@ -22,15 +22,15 @@
 
 					%ul.nav.navbar-nav.navbar-right
 						%li
-							%a{:href => "/"} Home
+							= link_to 'Home', root_url
 						%li
 							%a{:href => "../navbar-static-top/"} Static top
-						%li
-							%a{:href => "./"}
-								Fixed top
-								%span.sr-only (current)
-						%li
-							-# = link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}"
+						- if logged_in?
+							%li
+								= link_to 'Sign Out', signout_path
+						- else
+							%li
+								= link_to 'Sign In', login_path
 
 		.container-fluid
 			-# - if current_user || request.env['PATH_INFO'] == '/'
