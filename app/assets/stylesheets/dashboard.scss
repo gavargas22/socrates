@@ -1,0 +1,107 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.no-border {
+border: none!important;
+}
+.no-margin {
+margin: 0px!important;
+}
+.widget-9 {
+height: 145px;
+}
+.bg-primary {
+  background-color: #6d5cae;
+}
+.panel {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  padding: 10px 15px;
+}
+.bg-important {
+  color: #fff;
+  background-color: #F7634F !important;
+}
+.panel .panel-title {
+  font-size:1.5em;
+}
+.panel .panel-body {
+  padding:0 !important;
+}
+
+// .container-xs-height {
+// display: table;
+// padding-left: 0px;
+// padding-right: 0px;
+// width: 100%;
+// border-collapse: collapse;
+// table-layout: fixed;
+// }
+// .full-height {
+// height: 100%!important;
+// }
+// .widget-9 .row-xs-height:first-child {
+// height: 26px;
+// }
+// .row-xs-height {
+// display: table-row;
+// }
+// .col-xs-height {
+// display: table-cell;
+// float: none;
+// }
+// .col-top {
+// vertical-align: top;
+// }
+// .panel .panel-heading {
+// background: transparent;
+// border-radius: 0px;
+// border-bottom: 0px;
+// padding: 20px 20px 7px 20px;
+// position: relative;
+// z-index: 3;
+// min-height: 48px;
+// }
+// .top-right {
+// position: absolute!important;
+// top: 1px;
+// right: 0;
+// }
+// .top-left {
+// position: absolute!important;
+// top: 0;
+// left: 0;
+// }
+// .panel .panel-heading .panel-title {
+// text-transform: uppercase;
+// display: inline-block;
+// letter-spacing: 0.02em;
+// font-size: 12px;
+// font-weight: 600;
+// margin: 0;
+// padding: 0;
+// line-height: normal;
+// overflow: hidden;
+// text-overflow: ellipsis;
+// -webkit-text-stroke: 0px;
+// filter: alpha(opacity=40);
+// -webkit-transition: opacity 0.3s ease;
+// transition: opacity 0.3s ease;
+// }
+// .text-black {
+// color: #2c2c2c!important;
+// }

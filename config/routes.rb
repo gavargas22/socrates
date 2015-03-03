@@ -7,15 +7,6 @@ Rails.application.routes.draw do
 
 	resources :users
 
-	# Sessions
-	get    'login'            => 'sessions#new'
-	get    'create_session'   => 'sessions#create'
-	delete 'logout'           => 'sessions#destroy'
-
-	# resources :courses do
-	#   resources :students
-	# end
-
 	resources :subjects, shallow: true do
 		resources :courses
 	end
@@ -38,9 +29,14 @@ Rails.application.routes.draw do
 	get 'static_pages/index'
 	root 'static_pages#index'
 
+	# Dashboard Routes
+	resources :dashboard
+	get 'dashboard/home' => 'dashboard#home'
+
 	#Single Sign On Routes
 	match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+	get    'login' => 'sessions#new'
 
 	#Quizzes and Survey System
 	mount Rapidfire::Engine => "/questions"
