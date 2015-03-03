@@ -1,9 +1,20 @@
 .container.spacing-from-header
-  .panel.bg-important{:style => "margin-top:15px;"}
-    .panel-title Alerts!
-    .panel-body
-      .question-wrapper
-        %p Guillermo, You have questions due!
-  .row
-    .col-md-7
-      %h2 My Courses
+  -# .panel.bg-important{:style => "margin-top:15px;"}
+  -#   .panel-title Alerts!
+  -#   .panel-body
+  -#     .question-wrapper
+  -#       %p Guillermo, You have questions due!
+
+  .dashboard-wrapper
+    %h2 My Courses
+
+    -@courses = Course.all
+    - @courses.each do |course|
+      .course-wrapper-link
+        = link_to course, {:style => "text-decoration:none;"} do
+          .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
+            .course-title
+              = course.title
+            .course-crn
+              CRN:
+              = course.crn

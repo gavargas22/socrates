@@ -12,4 +12,5 @@ class SessionsController < ApplicationController
 	  UTEPSSO.deauthenticate(cookies[:UTEP_SE], cookies[:UTEP_SA])
 	  redirect_to root_url
 	end
+
 end
