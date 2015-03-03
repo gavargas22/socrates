@@ -1,3 +1,89 @@
 // Place all the styles related to the Courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.course-title {
+  font-size: 2.5em;
+  font-weight:bold;
+  line-height:1em;
+}
+.course-wrapper:hover {
+  background:#F5C944!important;
+  text-decoration:none;
+}
+.course-wrapper {
+  margin-bottom:2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.course-avatar-block {
+  width:200px;
+}
+.course-avatar-block h1 {
+  font-size: 20px;
+}
+.course-avatar-block img {
+  max-width:100%;
+  height:auto;
+}
+.course-destroy-button {
+  margin-bottom:20px;
+  text-align:right;
+  margin-right: 5px;
+  margin-top:-23px;
+}
+.course-create-btn a {
+  padding:10px 70px;
+  background-color: #F5C944;
+  border-width: 0 0 6px 0;
+  border-color: #E0AC0C;
+  border-style: solid;
+}
+.course-create-btn {
+  text-align:center;
+}
+.course-create-btn a:hover {
+  padding:10px 70px;
+  background-color: #E0AC0C;
+  border-width: 0 0 6px 0;
+  border-color: #E0AC0C;
+  border-style: solid;
+}
+.course-crn {
+  font-size: 20px;
+  font-weight:bold;
+  padding-bottom:10px;
+  text-decoration: underline;
+}
+
+.course-title {
+  font-size: 40px;
+  font-weight:bold;
+  line-height: 40px;
+  padding: 10px 0;
+}
+.course-description {
+  font-size: 14px;
+  padding-bottom:10px;
+}
+
+.course-section-id {
+
+}
+
+.course-faculty {
+
+}
+
+.course-password {
+  padding:30px 0;
+}
+
+.course-avatar {
+  padding: 20px 0;
+
+}
+.course-avatar img {
+  max-width: 100%;
+  height:auto;
+}
