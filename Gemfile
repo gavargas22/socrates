@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.0'
 
-#UTEP SSO
+# UTEP SSO
 gem 'utep_sso'
 # Use savon for SOAP client operation
 gem 'savon', '~> 2.8.0'
@@ -25,6 +25,14 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem "sprockets-rails"
 # Install AngularJS
 gem 'angularjs-rails'
+# Avatars with carrierwave
+gem "rmagick"
+gem "carrierwave"
+# Font awesome support
+gem "font-awesome-rails"
+# Rapidfire Quiz and questions.
+gem 'rapidfire'
+gem 'responders', '~> 2.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,6 +46,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Pretty links
+gem 'friendly_id', '~> 5.1.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -45,14 +56,14 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem "erb2haml"
+	gem "erb2haml"
 
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+	# Call 'byebug' anywhere in the code to stop execution and get a debugger console
+	gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+	# Access an IRB console on exception pages or by using <%= console %> in views
+	gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+	gem 'spring'
 end

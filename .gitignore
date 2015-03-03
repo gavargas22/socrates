@@ -19,5 +19,9 @@
 # Ignore Vagrant resources
 /.vagrant
 
+# Ignore uploads
+
+/public/uploads
+
 # Git Ignore
 Gemfile.lock
