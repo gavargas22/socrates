@@ -30,8 +30,11 @@ Rails.application.routes.draw do
 	root 'static_pages#index'
 
 	# Dashboard Routes
-	resources :dashboard
+	resources :dashboard, shallow: true do
+		resources :courses
+	end
 	get 'dashboard/home' => 'dashboard#home'
+	get 'dashboard/courses/:id' => 'dashboard#courses'
 
 	#Single Sign On Routes
 	match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]

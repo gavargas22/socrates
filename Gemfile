@@ -47,7 +47,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 # Pretty links
 gem 'friendly_id', '~> 5.1.0'
-gem 'savon'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
