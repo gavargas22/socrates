@@ -8,7 +8,7 @@
   .dashboard-wrapper
     %h2 My Courses
 
-    -@courses = Course.all
+    - @courses = Course.all
     - @courses.each do |course|
       .course-wrapper-link
         = link_to course, {:style => "text-decoration:none;"} do
