@@ -1,15 +1,25 @@
-.home-teaser-image
-	.logo-wrapper
-		%img{:src => "/assets/socrates_black.png"}
-	.home-app-description Socrates is a real-time learning analytics platform for teachers and students.
-	%p{:style => "text-align: center; margin-top:20px;"}
-		- if session[:user_id] && UTEPSSO.authenticated?(cookies[:UTEP_SE], cookies[:UTEP_SA])
-			- @current_user = current_user
-			= link_to "#{@current_user.name.split(' ').first}, Sign Out", signout_path, id: "sign_out", :class => "custom-home-button"
-		- else
-			= link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}", :class => "custom-home-button"
+= render 'header'
+%section#intro
+  .container.white-color
+    %h1 Socrates is a real-time classroom analytics platform.
+    = link_to 'Log In', create_session_path, :class => "btn btn-outline btn-lg"
+    -# %a.btn.btn-outline.btn-lg{:href => "getting-started#download", :onclick => "ga('send', 'event', 'Jumbotron actions', 'Download', 'Download 3.3.2');"} Log In
 
-.intro-text-wrapper.spacing-from-header
-	.container.info{:style => "text-align:center;"}
-		%h2 Get real-time information on how the class is doing.
-		%img{:src => "/assets/rubymotion-factory.gif"}
+%section#description
+  .container
+    %h4 With Socrates you can know what subjects are not clear to your students.
+-# .home-teaser-image
+-# 	.logo-wrapper
+-# 		%img{:src => "/assets/socrates_black.png"}
+-# 	.home-app-description Socrates is a real-time learning analytics platform for teachers and students.
+-# 	%p{:style => "text-align: center; margin-top:20px;"}
+-# 		- if session[:user_id] && UTEPSSO.authenticated?(cookies[:UTEP_SE], cookies[:UTEP_SA])
+-# 			- @current_user = current_user
+-# 			= link_to "#{@current_user.name.split(' ').first}, Sign Out", signout_path, id: "sign_out", :class => "custom-home-button"
+-# 		- else
+-# 			= link_to 'Sign-In', "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}", :class => "custom-home-button"
+-#
+-# .intro-text-wrapper.spacing-from-header
+-# 	.container.info{:style => "text-align:center;"}
+-# 		%h2 Get real-time information on how the class is doing.
+-# 		%img{:src => "/assets/rubymotion-factory.giindex.html.haml
