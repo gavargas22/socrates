@@ -5,9 +5,15 @@
     = link_to 'Log In', create_session_path, :class => "btn btn-outline btn-lg"
     -# %a.btn.btn-outline.btn-lg{:href => "getting-started#download", :onclick => "ga('send', 'event', 'Jumbotron actions', 'Download', 'Download 3.3.2');"} Log In
 
-%section#description
+%section#first-pane{:style => "padding-top:20px;"}
   .container
-    %h4 With Socrates you can know what subjects are not clear to your students.
+    %section.content.vertical-align.media-then-text
+      %article.half.text-content
+        %h2 Track how much you know about a topic in class.
+        %p
+          Clever &amp; fun to use. Pennies does all the hard work for you by telling you how much you have to spend today. If you spend less, no worries, Pennies will give you more to spend tomorrow.
+      %article.half.media-content
+        %img.reduced-width{:alt => "A simple way to track your finances", :src => "/assets/iphone-slanted-super-simple.png", :style => "max-width:333px;", :title => "Pennies app super simple"}
 -# .home-teaser-image
 -# 	.logo-wrapper
 -# 		%img{:src => "/assets/socrates_black.png"}
