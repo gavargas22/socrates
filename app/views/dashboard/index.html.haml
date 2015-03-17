@@ -1,9 +1,5 @@
-.container.spacing-from-header
-  -# .panel.bg-important{:style => "margin-top:15px;"}
-  -#   .panel-title Alerts!
-  -#   .panel-body
-  -#     .question-wrapper
-  -#       %p Guillermo, You have questions due!
+.container{:style => "margin-top:10px;"}
+  -# =render 'alert'
 
   .dashboard-wrapper
     %h2 My Courses
@@ -18,4 +14,3 @@
             .course-crn
               CRN:
               = course.crn
-    
