@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/teacher', as: 'rails_admin'
 	resources :staffs
 
 	resources :students
@@ -32,15 +33,17 @@ Rails.application.routes.draw do
 	# Dashboard Routes
 	resources :dashboard, shallow: true do
 		resources :courses
+		resource :users
 	end
 	get 'dashboard/home' => 'dashboard#home'
 	get 'dashboard/courses/:id' => 'dashboard#courses'
+
+# Dashboard for Teachers
+get 'teacher/' => 'teacher#home'
 
 	#Single Sign On Routes
 	match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 	get   'login' => 'sessions#create'
 
-	#Quizzes and Survey System
-	mount Rapidfire::Engine => "/questions"
 end

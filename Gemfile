@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.2.1'
 
 # UTEP SSO
 gem 'utep_sso'
@@ -10,7 +10,7 @@ gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -31,8 +31,9 @@ gem "carrierwave"
 # Font awesome support
 gem "font-awesome-rails"
 # Rapidfire Quiz and questions.
-gem 'rapidfire'
-gem 'responders', '~> 2.0'
+gem "survey", "~> 0.1"
+# Teacher Backend
+gem 'rails_admin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -47,6 +48,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 # Pretty links
 gem 'friendly_id', '~> 5.1.0'
+
+# Phusion Passenger
+gem 'capistrano-rvm'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-passenger'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
