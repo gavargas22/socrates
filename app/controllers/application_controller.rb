@@ -10,8 +10,4 @@ class ApplicationController < ActionController::Base
 			User.from_sso(cookies[:UTEP_SE], cookies[:UTEP_SA])
 		end
 	end
-
-	def can_administer?
-		true
-	end
 end

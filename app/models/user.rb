@@ -3,6 +3,7 @@ require 'utep_sso'
 class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username, use: :slugged
+
   #The table is the users table so load it.
   self.table_name = "users"
 
