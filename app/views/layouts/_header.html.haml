@@ -9,11 +9,15 @@
         %img{:alt => "Socrates", :src => "/assets/socrates.png"}
       .mobile-bg
       #application_menu.nav-collapse.collapse{:style => "height: 0px;background-color:#111;"}
-        %ul.nav.clearfix
-          %li
-            %a{:href => "/home"} Home
-        %ul.nav.clearfix
-          %li.top-balance
-            %a{:href => "/charts"} Courses
+      %ul.nav.clearfix
+        %li
+          = link_to 'Home', root_url
+      %ul.nav.clearfix
+        %li.top-balance
+          %a{:href => "/charts"} Courses
+        - if logged_in?
           %li.signup{:style => "margin-top:-3px"}
-            %a.btn{:href => "/signup"} Log In
+            = link_to 'Log Out', signout_path
+        - else
+          %li.signup{:style => "margin-top:-3px"}
+            = link_to 'Log In', log_in_path
