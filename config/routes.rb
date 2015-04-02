@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :subjects
+
   mount RailsAdmin::Engine => '/teacher', as: 'rails_admin'
 	resources :staffs
 
