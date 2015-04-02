@@ -15,5 +15,9 @@
         %ul.nav.clearfix
           %li.top-balance
             %a{:href => "/charts"} Courses
-          %li.signup{:style => "margin-top:-3px"}
-            %a.btn{:href => "/signup"} Log In
+          - if logged_in?
+            %li.signup{:style => "margin-top:-3px"}
+              = link_to 'Log Out', signout_path
+          - else
+            %li.signup{:style => "margin-top:-3px"}
+              = link_to 'Log In', login_path
