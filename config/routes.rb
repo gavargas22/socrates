@@ -42,8 +42,7 @@ Rails.application.routes.draw do
 get 'teacher/' => 'teacher#home'
 
 	#Single Sign On Routes
+  match 'login', to: 'sessions#new', as: 'login', via: [:get, :post]
 	match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-	get   'login' => 'sessions#create'
-
 end
