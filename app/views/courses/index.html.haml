@@ -17,6 +17,9 @@
           .course-crn
             CRN:
             = course.crn
+          .course-crn
+            Subject
+            = course.section
       .course-destroy-button
         = link_to edit_course_path(course) do
           %span.fa.fa-pencil-square-o{"aria-hidden" => "true", :style => "color:#ffffff;padding:5px;"}

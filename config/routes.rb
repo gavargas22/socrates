@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 	end
 
 	get 'dashboard/home' => 'dashboard#home'
-  get 'dashboard/courses' => 'dashboard#courses'
+  get 'dashboard/courses'
   # Dashboard for Teachers
   get 'teacher/' => 'teacher#home'
 

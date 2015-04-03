@@ -4,20 +4,9 @@
   .dashboard-wrapper
     %h2 My Dashboard
     .row.options-wrapper
-      .col-md-12.col-sm-12.col-xs-12.mobile-dashboard-buttons
-        = link_to '/dashboard/courses' do
+      .col-md-12.col-sm-12.col-xs-5.mobile-dashboard-buttons
+        = link_to dashboard_courses_page do
           %i.fa.fa-tasks
           %p My Courses
-      .col-md-12.col-sm-12.col-xs-12.mobile-dashboard-buttons
-        %p View Courses
-
-    - @courses = Course.all
-    - @courses.each do |course|
-      .course-wrapper-link
-        = link_to course, {:style => "text-decoration:none;"} do
-          .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
-            .course-title
-              = course.title
-            .course-crn
-              CRN:
-              = course.crn
+      .col-md-12.col-sm-12.col-xs-5.mobile-dashboard-buttons
+        %p Sign Up to Course
