@@ -56,10 +56,19 @@ height: 145px;
   margin: 5px 10px;
 }
 /*Dashboard Option System*/
+.options-wrapper {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
 .mobile-dashboard-buttons {
   height:150px;
   text-align:center;
   font-size:40px;
+  margin: 5px 3px;
+  background-color:#C9D2DC;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 .mobile-dashboard-buttons p {
   font-size:15px;

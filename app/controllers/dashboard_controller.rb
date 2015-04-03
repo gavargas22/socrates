@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
 
   def courses
     @courses = Course.all
+    render
   end
 
   def show
