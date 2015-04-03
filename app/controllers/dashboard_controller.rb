@@ -1,11 +1,15 @@
 class DashboardController < ApplicationController
 
   def home
+    @courses = Course.all
   end
 
   def courses
-    return 1
+    @courses = Course.all
   end
 
-  @courses = Course.all
+  def show
+    @courses = Course.all
+  end
+
 end

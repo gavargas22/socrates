@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   include SessionsHelper
-  
+
   def new
     redirect_to "https://adminapps.utep.edu/sso?redirectURL=#{create_session_url}"
   end

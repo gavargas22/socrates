@@ -2,7 +2,14 @@
   -# =render 'alert'
 
   .dashboard-wrapper
-    %h2 My Courses
+    %h2 My Dashboard
+    .row.options-wrapper
+      .col-md-12.col-sm-12.col-xs-12.mobile-dashboard-buttons
+        = link_to '/dashboard/courses' do
+          %i.fa.fa-tasks
+          %p My Courses
+      .col-md-12.col-sm-12.col-xs-12.mobile-dashboard-buttons
+        %p View Courses
 
     - @courses = Course.all
     - @courses.each do |course|

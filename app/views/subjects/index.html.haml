@@ -9,13 +9,13 @@
       %th
       %th
       %th
-      
+
   %tbody
     - @subjects.each do |subject|
       %tr
         %td= subject.name
         %td= subject.short_name
-        %td= subject.section
+        -# %td= subject.section
         %td= link_to 'Show', subject
         %td= link_to 'Edit', edit_subject_path(subject)
         %td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
