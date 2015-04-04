@@ -5,7 +5,6 @@ set :application, 'socrates'
 # set :repo_url, 'https://github.com/[user name]/[application name].git'
 set :scm, :git
 set :repo_url, 'git@git.at.utep.edu:gavargas/socrates.git'
-set :branch, fetch(:branch, "master")
 
 
 # Define where to put your application code
