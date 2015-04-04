@@ -11,10 +11,12 @@
       #application_menu.nav-collapse.collapse{:style => "height: 0px;"}
         %ul.nav.clearfix
           %li
-            %a{:href => "/home"} Home
+            = link_to 'Home', root_url
+          %li
+            = link_to 'Dashboard', dashboard_index_path
         %ul.nav.clearfix
           %li.top-balance
-            %a{:href => "/charts"} Courses
+            = link_to 'Courses', courses_path
           - if logged_in?
             %li.signup{:style => "margin-top:-3px"}
               = link_to 'Log Out', signout_path
