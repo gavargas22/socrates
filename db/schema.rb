@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312042831) do
+ActiveRecord::Schema.define(version: 20150404004718) do
 
   create_table "courses", force: :cascade do |t|
     t.integer  "crn"
@@ -113,7 +113,10 @@ ActiveRecord::Schema.define(version: 20150312042831) do
     t.string   "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "subject_id"
   end
+
+  add_index "sections", ["subject_id"], name: "index_sections_on_subject_id"
 
   create_table "staffs", force: :cascade do |t|
     t.integer  "user_id"
@@ -130,6 +133,17 @@ ActiveRecord::Schema.define(version: 20150312042831) do
   end
 
   add_index "students", ["user_id"], name: "index_students_on_user_id", unique: true
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.integer  "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
+  add_index "subjects", ["section_id"], name: "index_subjects_on_section_id"
 
   create_table "survey_answers", force: :cascade do |t|
     t.integer  "attempt_id"
