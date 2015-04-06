@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :subjects
 
-  mount RailsAdmin::Engine => '/teacher', as: 'rails_admin'
+	mount RailsAdmin::Engine => '/teacher', as: 'rails_admin'
+
+	resources :subjects
+
 	resources :staffs
 
 	resources :students
@@ -10,17 +12,23 @@ Rails.application.routes.draw do
 
 	resources :users
 
-	resources :subjects, shallow: true do
-		resources :courses
-	end
+	resources :subjects
 
-	resources :courses, shallow: true do
-		resources :sections
-	end
+	resources :courses
 
-	resources :sections, shallow: true do
-		resources :students
-	end
+	resources :sections
+
+	# resources :subjects, shallow: true do
+	# 	resources :courses
+	# end
+	#
+	# resources :courses, shallow: true do
+	# 	resources :sections
+	# end
+	#
+	# resources :sections, shallow: true do
+	# 	resources :students
+	# end
 
 
 	put 'courses/:id/enroll' => 'courses#enroll', as: 'enroll'
@@ -32,18 +40,15 @@ Rails.application.routes.draw do
 	root 'static_pages#index'
 
 	# Dashboard Routes
-	resources :dashboard, shallow: true do
-		# resources :courses
-		resource :users
-	end
-
+	resources :dashboard, only: [:index]
 	get 'dashboard/home' => 'dashboard#home'
-  get 'dashboard/courses'
-  # Dashboard for Teachers
-  get 'teacher/' => 'teacher#home'
+	get 'dashboard/courses' => 'dashboard#courses'
+
+	# Dashboard for Teachers
+	get 'teacher/' => 'teacher#home'
 
 	#Single Sign On Routes
-  match 'login', to: 'sessions#new', as: 'login', via: [:get, :post]
+	match 'login', to: 'sessions#new', as: 'login', via: [:get, :post]
 	match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 end
