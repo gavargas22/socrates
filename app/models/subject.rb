@@ -1,3 +1,7 @@
 class Subject < ActiveRecord::Base
-  has_many :sections
+	extend FriendlyId
+
+	has_many :sections
+	friendly_id :short_name, use: :slugged
+
 end
