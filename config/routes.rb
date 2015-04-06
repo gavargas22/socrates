@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 	resources :faculties
 
 	resources :users
-	
+
 	resources :subjects
 
 	resources :courses
@@ -40,13 +40,9 @@ Rails.application.routes.draw do
 	root 'static_pages#index'
 
 	# Dashboard Routes
-	resources :dashboard, shallow: true do
-		# resources :courses
-		resource :users
-	end
-
+	resources :dashboard, only: [:index]
 	get 'dashboard/home' => 'dashboard#home'
-	get 'dashboard/courses'
+	get 'dashboard/courses' => 'dashboard#courses'
 
 	# Dashboard for Teachers
 	get 'teacher/' => 'teacher#home'
