@@ -1,12 +1,12 @@
 .container{:style => "margin-top:10px;"}
-  -# =render 'alert'
+	-# =render 'alert'
 
-  .dashboard-wrapper
-    %h2 My Dashboard
-    .row.options-wrapper
-      .col-md-12.col-sm-12.col-xs-5.mobile-dashboard-buttons
-        = link_to dashboard_courses_page do
-          %i.fa.fa-tasks
-          %p My Courses
-      .col-md-12.col-sm-12.col-xs-5.mobile-dashboard-buttons
-        %p Sign Up to Course
+	.dashboard-wrapper
+		%h2 My Dashboard
+		.row.options-wrapper
+			.col-md-12.col-sm-12.col-xs-5.mobile-dashboard-buttons
+				= link_to dashboard_courses_path do
+					%i.fa.fa-tasks
+					%p My Courses
+			.col-md-12.col-sm-12.col-xs-5.mobile-dashboard-buttons
+				%p Sign Up to Course

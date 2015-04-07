@@ -1,5 +1,5 @@
 .container.spacing-from-header
-  %h1 My Courses
+  %h1 All Courses
   .row{:style => "padding-left:0;padding-right:0;margin-left:auto;margin-right:auto;"}
     .col-lg-6{:style => "padding-left:0;padding-right:0;"}
       .input-group{:style => "padding-bottom:20px;"}
@@ -17,9 +17,8 @@
           .course-crn
             CRN:
             = course.crn
-          .course-crn
-            Subject
-            = course.section
+          .course-subject
+            = course.section.subject.name
       .course-destroy-button
         = link_to edit_course_path(course) do
           %span.fa.fa-pencil-square-o{"aria-hidden" => "true", :style => "color:#ffffff;padding:5px;"}
