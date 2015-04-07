@@ -16,7 +16,7 @@
 			- @sections.each do |section|
 				%tr
 					%td= section.name
-					%td= section.subject
+					%td= section.subject.name
 					%td= section.number
 					%td= link_to 'Show', section
 					%td= link_to 'Edit', edit_section_path(section)

@@ -2,9 +2,7 @@ Rails.application.routes.draw do
 
 	mount RailsAdmin::Engine => '/teacher', as: 'rails_admin'
 
-	resources :subjects, shallow: true do
-		resources :sections
-	end
+	resources :subjects
 
 	resources :staffs
 
@@ -16,9 +14,7 @@ Rails.application.routes.draw do
 
 	resources :courses
 
-	resources :sections, shallow: true do
-		resources :courses
-	end
+	resources :sections
 
 	get 'sections/:id/courses/:id' => 'courses#show', as: 'section_course'
 

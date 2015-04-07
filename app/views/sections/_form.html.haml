@@ -19,22 +19,12 @@
 		= f.text_field :department
 
 	.field
-		%p
-		- @subject_id = params[:subject_id]
-		#{@subject_id}
-		= hidden_field(:subject_id, @subject_id)
-		%br
-		-# = f.text_field :subject_id
-		-# = f.fields_for :subject do |s|
-		-# 	= s.collection_select :subject_ids, all_subjects, :id, :name, {}, {:multiple => true}
-
-	-#   = f.fields_for :subject do |s|
-	-#     = s.collection_select :subject, Provider.order(:name),:id,:name, include_blank: true
-	-#
-	-# .field
-	-#   = f.label :subject
-	-#   %br/
-	-#   = f.text_field :subject, section.subject
+		.form-group.form-field-spacer
+		= f.label :owners, :class => 'custom-contact-label', :for => 'sectionSubject' do
+			Event Owner(s)
+		-# = f.hidden_field :subject_id, :value => @event.id
+		-# = f.collection_select(:subject_id, Subject.all, {include_blank: true})
+		= collection_select(:section, :subject_id, Subject.all, :id, :name, {})
 
 	.field
 		= f.label :number
