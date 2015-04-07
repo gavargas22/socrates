@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
 	# GET /sections.json
 	def index
 		@sections = Section.all
-		@subjects = Subject.all
+		# @subject = @section.subject
 	end
 
 	# GET /sections/1
@@ -16,6 +16,7 @@ class SectionsController < ApplicationController
 	# GET /sections/new
 	def new
 		@section = Section.new
+		@subject = @section.subject
 	end
 
 	# GET /sections/1/edit
@@ -29,7 +30,7 @@ class SectionsController < ApplicationController
 
 		respond_to do |format|
 			if @section.save
-				format.html { redirect_to @section, notice: 'Section was successfully created.' }
+				format.html { redirect_to sections_courses_path, notice: 'Section was successfully created.' }
 				format.json { render :show, status: :created, location: @section }
 			else
 				format.html { render :new }
@@ -66,10 +67,15 @@ class SectionsController < ApplicationController
 		# Use callbacks to share common setup or constraints between actions.
 		def set_section
 			@section = Section.find(params[:id])
+			@subject = @section.subject
+		end
+
+		def set_subject
+			@subject = Subject.find(params[:subject_id])
 		end
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def section_params
-			params.require(:section).permit(:name, :department, :number)
+			params.require(:section).permit(:name, :department, :number, :subject_id, :subjects_attributes =>[:id, :name, :short_name])
 		end
 end

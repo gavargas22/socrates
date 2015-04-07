@@ -2,8 +2,7 @@
 	%p#notice= notice
 
 	%h1 Listing Subjects
-	- @subjects.each do |subject|
-		%p= subject.short_name
+	-# %p= @section.subject.short_name
 
 	%h1 Listing Sections
 	%table
@@ -17,7 +16,7 @@
 			- @sections.each do |section|
 				%tr
 					%td= section.name
-					%td= section.subject.name
+					%td= section.subject
 					%td= section.number
 					%td= link_to 'Show', section
 					%td= link_to 'Edit', edit_section_path(section)
