@@ -21,7 +21,7 @@
 	.field
 		.form-group.form-field-spacer
 		= f.label :owners, :class => 'custom-contact-label', :for => 'sectionSubject' do
-			Event Owner(s)
+			Course Subject
 		-# = f.hidden_field :subject_id, :value => @event.id
 		-# = f.collection_select(:subject_id, Subject.all, {include_blank: true})
 		= collection_select(:section, :subject_id, Subject.all, :id, :name, {})
