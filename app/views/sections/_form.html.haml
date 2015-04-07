@@ -20,9 +20,10 @@
 
 	.field
 		%p
-		= hidden_field(:section, :subject_id)
-		-# = f.label :subject_id
-		-# %br
+		- @subject_id = params[:subject_id]
+		#{@subject_id}
+		= hidden_field(:subject_id, @subject_id)
+		%br
 		-# = f.text_field :subject_id
 		-# = f.fields_for :subject do |s|
 		-# 	= s.collection_select :subject_ids, all_subjects, :id, :name, {}, {:multiple => true}

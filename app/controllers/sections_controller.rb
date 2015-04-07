@@ -27,7 +27,7 @@ class SectionsController < ApplicationController
 	# POST /sections.json
 	def create
 		@section = Section.new(section_params)
-
+		@subject_id = params[:subject_id]
 		respond_to do |format|
 			if @section.save
 				format.html { redirect_to sections_courses_path, notice: 'Section was successfully created.' }
