@@ -34,6 +34,8 @@ gem "font-awesome-rails"
 gem "survey", "~> 0.1"
 # Teacher Backend
 gem 'rails_admin'
+#Simple Form
+gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
