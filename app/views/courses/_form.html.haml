@@ -1,5 +1,5 @@
 .container
-  = form_for @course do |f|
+  = simple_form_for @course do |f|
     - if @course.errors.any?
       #error_explanation
         %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
@@ -30,10 +30,11 @@
 
         .field
           .form-group
-            = f.label :sections, :class => 'custom-contact-label', :for => 'courseSection' do
+            = f.label :section, :class => 'custom-contact-label', :for => 'courseSection' do
               Course Subject
             %p
-            = collection_select(:course, :section_id, Section.all, :id, :name, {})
+            = f.association :section, collection: Section.all, prompt: "Choose a Class Section", :value_method => :id
+            -# = f.association :section
 
         .field
           .form-group
