@@ -5,11 +5,11 @@ module Contests::SurveysHelper
   end
 
   def new_survey
-    new_contests_survey_path
+    # new_survey_path
   end
 
   def edit_survey(resource)
-    edit_contests_survey_path(resource)
+    # edit_contests_survey_path(resource)
   end
 
   def survey_scope(resource)

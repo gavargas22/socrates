@@ -1,6 +1,8 @@
 require 'utep_sso'
 
 class User < ActiveRecord::Base
+
+	has_surveys
 	extend FriendlyId
 	friendly_id :username, use: :slugged
 
