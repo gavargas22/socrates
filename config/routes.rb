@@ -56,7 +56,5 @@ Rails.application.routes.draw do
 	match '/surveys', to: 'contests/surveys#index', via: [:get, :post]
 	match '/surveys/:id', to: 'contests/surveys#show', via: [:get, :post]
 
-	resources :contests do
-		:surveys
-	end
+	resources :surveys
 end
