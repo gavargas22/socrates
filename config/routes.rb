@@ -51,4 +51,10 @@ Rails.application.routes.draw do
 	match 'login', to: 'sessions#new', as: 'login', via: [:get, :post]
 	match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
+	#Survey Plugin & System
+	match '/surveys', to: 'contests/surveys#index', via: [:get, :post]
+	match '/surveys/:id', to: 'contests/surveys#show', via: [:get, :post]
+
+	resources :surveys
 end
