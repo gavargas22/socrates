@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404004718) do
+ActiveRecord::Schema.define(version: 20150410040531) do
 
   create_table "courses", force: :cascade do |t|
     t.integer  "crn"
@@ -55,16 +55,16 @@ ActiveRecord::Schema.define(version: 20150404004718) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "user_id_id"
-    t.integer  "course_id_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "type"
+    t.string   "question_text"
+    t.text     "answer_options"
+    t.boolean  "answer_presence"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "user_id"
   end
 
-  add_index "questions", ["course_id_id"], name: "index_questions_on_course_id_id"
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
-  add_index "questions", ["user_id_id"], name: "index_questions_on_user_id_id"
 
   create_table "rapidfire_answer_groups", force: :cascade do |t|
     t.integer  "question_group_id"
