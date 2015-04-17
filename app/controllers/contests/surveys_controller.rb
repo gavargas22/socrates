@@ -1,6 +1,6 @@
 class Contests::SurveysController < ApplicationController
 
-  before_filter :load_survey, :only => [:show, :edit, :update]
+  before_filter :load_survey, :only => [:show, :edit, :update, :new]
 
   def index
     @surveys = Survey::Survey.all
