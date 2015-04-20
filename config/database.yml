@@ -1,20 +1,20 @@
 default:
-	adapter: sqlite3
-	pool: 5
-	timeout: 5000
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
 development:
-	adapter: sqlite3
-	database: db/development.sqlite3
-	pool: 5
-	timeout: 5000
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
 production:
-	adapter: mysql2
-	database: zadmin_socrates
-	host: localhost
-	password: enypyne9u
-	username: socrates
+  adapter: mysql2
+  database: zadmin_socrates
+  host: localhost
+  password: enypyne9u
+  username: socrates
 test:
-	adapter: sqlite3
-	database: db/test.sqlite3
-	pool: 5
-	timeout: 5000
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
