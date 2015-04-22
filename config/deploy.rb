@@ -21,16 +21,6 @@ set :format, :pretty
 # check out:
 # http://capistranorb.com/
 
-task :fix_absent_manifest_bug do
-		on roles(:web) do
-			within release_path do  execute :touch,
-				release_path.join('public', fetch(:assets_prefix), 'manifest-fix.temp')
-			end
-	 end
-	end
-
-	after :updating, 'deploy:fix_absent_manifest_bug'
-
 namespace :deploy do
 
 	desc 'Restart application'
@@ -51,5 +41,15 @@ namespace :deploy do
 			# end
 		end
 	end
+
+	task :fix_absent_manifest_bug do
+			on roles(:web) do
+				within release_path do  execute :touch,
+					release_path.join('public', fetch(:assets_prefix), 'manifest-fix.temp')
+				end
+		 end
+		end
+
+		after :updating, 'deploy:fix_absent_manifest_bug'
 
 end
