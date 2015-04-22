@@ -52,4 +52,9 @@ namespace :deploy do
 
 		after :updating, 'deploy:fix_absent_manifest_bug'
 
+	# Fixing broken links that are affecting the course avatars.
+	# task :symlink_config, roles: :app do
+	# 	run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+	# end
+
 end
