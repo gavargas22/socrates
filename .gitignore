@@ -25,3 +25,4 @@
 
 # Git Ignore
 Gemfile.lock
+public/uploads
