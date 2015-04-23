@@ -53,8 +53,12 @@ Rails.application.routes.draw do
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
 	#Survey Plugin & System
-	match '/surveys', to: 'contests/surveys#index', via: [:get, :post]
-	match '/surveys/:id', to: 'contests/surveys#show', via: [:get, :post]
+	# match '/surveys/new', to: 'contests/surveys#new', as: 'new_survey', via: [:get, :post]
+	# match '/surveys', to: 'contests/surveys#index', via: [:get, :post]
+	# match '/surveys/:id', to: 'contests/surveys#show', via: [:get, :post]
 
-	resources :surveys
+	scope module: 'contests' do
+		resources :surveys
+	end
+
 end
