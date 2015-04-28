@@ -1,3 +1,9 @@
 %h1 Hello!
 
 = @survey.name
+
+- if @survey.avaliable_for_participant?(@user)
+  = render 'form'
+- else
+  %p Uupss, #{@user.name} you have reach the maximum number of
+  %p attempts for #{@survey.name}
