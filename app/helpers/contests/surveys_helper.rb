@@ -14,21 +14,21 @@ module Contests::SurveysHelper
 
   def survey_scope(resource)
     if action_name =~ /new|create/
-      contests_surveys_path(resource)
+      surveys_path(resource)
     elsif action_name =~ /edit|update/
-      contests_survey_path(resource)
+      survey_path(resource)
     end
   end
 
   def new_attempt
-    new_contests_attempt_path
+    new_attempt_path
   end
 
   def attempt_scope(resource)
     if action_name =~ /new|create/
-     contests_attempts_path(resource)
+     attempts_path(resource)
     elsif action_name =~ /edit|update/
-      contests_attempt_path(resource)
+      attempt_path(resource)
     end
   end
 

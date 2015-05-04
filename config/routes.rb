@@ -59,6 +59,7 @@ Rails.application.routes.draw do
 
   scope module: 'contests' do
     resources :surveys
+    resources :attempts
   end
 
   match '/surveys/new', to: 'contests/surveys#new', as: 'new_question', via: [:get, :post]
