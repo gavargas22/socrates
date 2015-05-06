@@ -1,4 +1,4 @@
-.container.spacing-from-header
+.container
   %h1 All Courses
   .row{:style => "padding-left:0;padding-right:0;margin-left:auto;margin-right:auto;"}
     .col-lg-6{:style => "padding-left:0;padding-right:0;"}
@@ -27,29 +27,3 @@
   .course-create-btn
     = link_to new_course_path do
       %span.fa.fa-plus{"aria-hidden" => "true", :style => "color:#ffffff;padding:5px;"}
-  -# %table
-  -#   %thead
-  -#     %tr
-  -#       %th Crn
-  -#       %th Description
-  -#       %th Password digest
-  -#       %th Section
-  -#       %th Faculty
-  -#       %th
-  -#       %th
-  -#       %th
-  -#
-  -#   %tbody
-  -#     - @courses.each do |course|
-  -#       %tr
-  -#         %td= course.crn
-  -#         %td= course.description
-  -#         %td= course.password_digest
-  -#         %td= course.section_id
-  -#         %td= course.faculty_id
-  -#         %td= link_to 'Show', course
-  -#         %td= link_to 'Edit', edit_course_path(course)
-  -#         %td= link_to 'Destroy', course, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  -#
-  -# %br
-  -#

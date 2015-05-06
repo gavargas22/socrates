@@ -1,3 +1,12 @@
 // Place all the styles related to the subjects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.subject {
+  height:150px;
+  padding: 40px;
+}
+.subject-name {
+  font-weight:bold;
+  font-size:2em;
+}

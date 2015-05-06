@@ -17,3 +17,4 @@
 //= require_tree .
 //= require angular
 //= require bootstrap-sprockets
+//= require chosen-jquery
