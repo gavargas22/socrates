@@ -1,33 +1,24 @@
-.container.spacing-from-header
-  .course-navigation.container
-    .nav-buttons
-      =link_to 'Back', courses_path
+.container
+  -# .course-navigation.container
+  -#   .nav-buttons
+  -#     =link_to 'Back', courses_path
   %p#notice= notice
 
-  .course-title
-    -# = @course.title
-    .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{@course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
-      .course-title
-        = @course.title
-  .course-crn
-    CRN
-    = @course.crn
-    -# %hr
+  .row
+    .course-title.col-sm-12.col-lg-7
+      .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{@course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
+        .course-title
+          = @course.title
+        .course-description
+          = @course.description
+        .course-signup
+          %button.btn.btn-lg.button-outline{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#enroll_dialog' } Sign Up
+    .col-sm-12.col-lg-5
+      %h2 Details
+      %p Course: #{@course.crn}
+    -# .course-active-questions
+    -#   %h2 Active Questions
 
-  .course-description
-    = @course.description
-
-
-  -# .course-section-id
-  -#   %b Section:
-  -#   = @course.section_id
-  -# .course-faculty
-  -#   %b Faculty:
-  -#   = @course.faculty_id
-  -# .course-avatar
-  -#   = image_tag @course.course_avatar_url.to_s
-
-%button.btn.btn-primary.btn-sm{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#enroll_dialog' } Sign Up
 
 .modal.fade{ id: 'enroll_dialog', tabindex: '-1', role: 'dialog', 'aria-labelledby' => 'ModalLabel', 'aria-hidden' => 'true' }
   .modal-dialog

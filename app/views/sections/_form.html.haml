@@ -1,35 +1,19 @@
-= form_for(@section) do |f|
-	-# - if @section.errors.any?
-	-#   #error_explanation
-	-#     %h2
-	-#       = pluralize(@section.errors.count, "error")
-	-#         prohibited this section from being saved:
-	-#
-	-#     %ul
-	-#       - @section.errors.full_messages.each do |message|
-	-#         %li= message
-	.field
-		= f.label :name
-		%br/
-		= f.text_field :name
+= simple_form_for @section do |f|
+  .row
+    .col-sm-4
+      .form-group
+        = f.label :name, "Course Name"
+        = f.text_field :name, :class => "form-control", :placeholder => "Physics 2434"
 
-	.field
-		= f.label :department
-		%br/
-		= f.text_field :department
+      -# .field
+      -#   .form-group
+      -#   = f.label :department, "Department"
+      -#   = f.text_field :department, :class => "form-control", :placeholder => "Physics"
 
-	.field
-		.form-group.form-field-spacer
-		= f.label :owners, :class => 'custom-contact-label', :for => 'sectionSubject' do
-			Course Subject
-		-# = f.hidden_field :subject_id, :value => @event.id
-		-# = f.collection_select(:subject_id, Subject.all, {include_blank: true})
-		= collection_select(:section, :subject_id, Subject.all, :id, :name, {})
+      .field
+        .form-group
+          = f.association :subject, collection:Subject.all, include_blank: false, prompt:"Select the class subject", :input_html => { :class => 'chosen-select' }
 
-	.field
-		= f.label :number
-		%br/
-		= f.text_field :number
-
-	.actions
-		= f.submit
+      .actions
+        .form-group
+          = f.submit 'Go', :class => "button btn btn-warning", :style => "width:100%;"
