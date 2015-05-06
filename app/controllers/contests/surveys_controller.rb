@@ -37,7 +37,7 @@ class Contests::SurveysController < ApplicationController
   private
 
   def default_redirect
-    redirect_to contests_surveys_path, alert: I18n.t("surveys_controller.#{action_name}")
+    redirect_to surveys_path, alert: I18n.t("surveys_controller.#{action_name}")
   end
 
   def load_survey

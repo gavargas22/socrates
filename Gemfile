@@ -57,6 +57,10 @@ gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-passenger'
 
+# Chosen rails
+gem 'chosen-rails'
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

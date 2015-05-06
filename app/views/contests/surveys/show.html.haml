@@ -1,9 +1,13 @@
 %h1 Individual Survey View
 
 = @survey.name
+= current_user.name
 
-- if @survey.avaliable_for_participant?(@user)
+- if @survey.avaliable_for_participant?(current_user)
   = render 'form'
 - else
-  %p Uupss, #{@user.name} you have reach the maximum number of
+  %p Uupss, #{current_user.name} you have reach the maximum number of
   %p attempts for #{@survey.name}
+
+
+%p #{@survey.attempts.count}

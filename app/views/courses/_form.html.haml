@@ -1,47 +1,46 @@
 .container
-	= simple_form_for @course do |f|
-		- if @course.errors.any?
-			#error_explanation
-				%h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
-				%ul
-					- @course.errors.full_messages.each do |msg|
-						%li= msg
+  = simple_form_for @course do |f|
+    - if @course.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
+        %ul
+          - @course.errors.full_messages.each do |msg|
+            %li= msg
 
-		.row
-			.col-sm-4
-				.form-group
-					= f.label :crn, "CRN"
-					= f.number_field :crn, :class => "form-control", :placeholder => "CRN Number"
+    .row
+      .col-sm-4
+        .form-group
+          = f.label :crn, "CRN"
+          = f.number_field :crn, :class => "form-control", :placeholder => "CRN Number"
 
-				.field
-					.form-group
-						= f.label :title, "Course Name"
-						= f.text_field :title, :class => "form-control", :placeholder => "History of the United States from 1866"
+        .field
+          .form-group
+            = f.label :title, "Course Name"
+            = f.text_field :title, :class => "form-control", :placeholder => "History of the United States from 1866"
 
-				.field
-					.form-group
-						= f.label :description, "Description"
-						= f.text_area :description, :class => "form-control", :placeholder => "Course Description"
+        .field
+          .form-group
+            = f.label :description, "Description"
+            = f.text_area :description, :class => "form-control", :placeholder => "Course Description"
 
-				.field
-					.form-group
-						= f.label :password, "Course access password"
-						= f.password_field :password, :class => "form-control", :placeholder => "history101"
+        .field
+          .form-group
+            = f.label :password, "Course access password"
+            = f.password_field :password, :class => "form-control", :placeholder => "history101"
 
-				.field
-					.form-group
-						= f.label :section, :class => 'custom-contact-label', :for => 'courseSection' do
-							Course Subject
-						%p
-						= f.association :section, include_blank: false, prompt: "Choose a Course Section"
-						-# = f.association :section
+        .field
+          .form-group
+            -# = f.label :section, :class => 'custom-contact-label', :for => 'courseSection' do
+            -#   Course Subject
 
-				.field
-					.form-group
-						.course-avatar-block
-							%h4 Current Course Avatar
-							= image_tag(@course.course_avatar_url)
-							= f.file_field :course_avatar
-				.actions
-					.form-group
-						= f.submit 'Go', :class => "button btn btn-warning", :style => "width:100%;"
+            = f.association :section, collection:Section.all, include_blank: false, prompt: "Choose a Course Section", :input_html => { :class => "chosen-select" }
+
+        .field
+          .form-group
+            .course-avatar-block
+              %h4 Current Course Avatar
+              = image_tag(@course.course_avatar_url)
+              = f.file_field :course_avatar
+        .actions
+          .form-group
+            = f.submit 'Go', :class => "button btn btn-warning", :style => "width:100%;"

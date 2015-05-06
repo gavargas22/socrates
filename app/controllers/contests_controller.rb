@@ -16,7 +16,7 @@ class ContestsController < ApplicationController
     # ensure that current user is assigned with this attempt
     @attempt.participant = participant
     if @attempt.valid? and @attempt.save
-      redirect_to contests_path
+      redirect_to survey_path
     else
       render :action => :new
     end
@@ -27,7 +27,7 @@ class ContestsController < ApplicationController
   end
 
   def survey
-    @survey ||= Survey::Survey.active.first
+    #@survey ||= Survey::Survey.active.first
   end
 
 end

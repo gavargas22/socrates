@@ -1,5 +1,6 @@
 class Contests::AttemptsController < ApplicationController
 
+  include SessionsHelper
   helper 'contests/surveys'
 
   before_filter :load_active_survey
