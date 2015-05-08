@@ -6,7 +6,7 @@
 
   .row
     .course-title.col-sm-12.col-lg-7
-      .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{@course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
+      .course-wrapper-plain{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{@course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
         .course-title
           = @course.title
         .course-description
@@ -16,6 +16,7 @@
     .col-sm-12.col-lg-5
       %h2 Details
       %p Course: #{@course.crn}
+
     -# .course-active-questions
     -#   %h2 Active Questions
 
