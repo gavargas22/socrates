@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508224000) do
+ActiveRecord::Schema.define(version: 20150512000848) do
 
   create_table "courses", force: :cascade do |t|
     t.integer  "crn"
@@ -146,6 +146,14 @@ ActiveRecord::Schema.define(version: 20150508224000) do
   end
 
   add_index "subjects", ["section_id"], name: "index_subjects_on_section_id"
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "subscriber_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "subscriptions", ["subscriber_id"], name: "index_subscriptions_on_subscriber_id", unique: true
 
   create_table "survey_answers", force: :cascade do |t|
     t.integer  "attempt_id"
