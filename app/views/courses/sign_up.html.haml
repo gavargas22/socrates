@@ -1,1 +1,7 @@
+- if @course.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@course.errors.count, "error")}"
+    %ul
+      - @course.errors.full_messages.each do |msg|
+        %li= msg
 %h1 hello

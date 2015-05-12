@@ -31,15 +31,12 @@ class CoursesController < ApplicationController
     # Error if password is blank
     @course.errors.add(:password, "can not be blank") if params[:password].empty?
 
-    # Error if password confirmation is not same as password
-    @course.errors.add(:password_confirmation, "does not match password") if params[:password_confirmation] != params[:password]
-
-    # Is password correct?
+    # Check if the password
     authenticated = @course.authenticate(params[:password])
     @course.errors.add(:password, "is incorrect") if !authenticated
 
     # Fetch current student
-    student = current_user #current_user
+    student = Student.find(current_user)
 
     # Check if the user was enrolled previously
     student_previously_enrolled = @course.students.include?(student)
@@ -48,7 +45,7 @@ class CoursesController < ApplicationController
       if student_previously_enrolled
         format.html { redirect_to course_path, notice: "Student is already registered"}
       elsif @course.errors.empty? && @course.students << student # Reload if errors exist
-        format.html { redirect_to course_students_path(@course), notice: "Student was successfully registered"}
+        format.html { redirect_to course_path(@course), notice: "Student was successfully registered"}
       else
         format.html { render :sign_up }
       end
