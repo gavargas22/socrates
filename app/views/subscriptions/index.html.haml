@@ -1,0 +1,27 @@
+%h1 Listing subscriptions
+
+%table
+  %thead
+    %tr
+      %th User
+      %th Course
+      %th User
+      %th Course
+      %th
+      %th
+      %th
+
+  %tbody
+    - @subscriptions.each do |subscription|
+      %tr
+        %td= subscription.user_id
+        %td= subscription.course_id
+        %td= subscription.user
+        %td= subscription.course
+        %td= link_to 'Show', subscription
+        %td= link_to 'Edit', edit_subscription_path(subscription)
+        %td= link_to 'Destroy', subscription, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Subscription', new_subscription_path

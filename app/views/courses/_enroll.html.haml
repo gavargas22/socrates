@@ -1,14 +1,6 @@
-= simple_form_for @course, :url => enroll_path, :method => :put do
-  - puts @course.errors.count
-  - if @course.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
-      %ul
-        - @course.errors.full_messages.each do |msg|
-          %li= msg
-
+= simple_form_for @course, :url => enroll_path, :method => 'put' do |f|
   .form-group
-    = label :password, "Course Access Code"
-    -# = text_field: :password_field_tag :password
-    = password_field :password, :class => "form-control", :placeholder => "Access Code"
+    = f.input :course_id, :as => :hidden, :input_html => { :value => @course.id }
+    = f.label :password, "Course Access Code"
+    = f.password_field :password, :class => "form-control", :placeholder => "Access Code"
     = submit_tag "Enroll"

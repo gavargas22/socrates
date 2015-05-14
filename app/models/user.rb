@@ -3,6 +3,9 @@ require 'utep_sso'
 class User < ActiveRecord::Base
 
   has_surveys
+  has_many :subscriptions
+  has_many :subscribed_courses, through: :subscriptions, source: :course
+
   extend FriendlyId
   friendly_id :username, use: :slugged
 
@@ -50,4 +53,22 @@ class User < ActiveRecord::Base
       return user
     end
   end
+
+  # =============================== Subscription functions ====================================
+
+  # Subscribes to a course
+  def subscribe(course)
+    subscriptions.create(course_id: course.id)
+  end
+
+  # Unsubscribes from event
+  def unsubscribe(course)
+    subscriptions.find_by(course_id: course.id).destroy
+  end
+
+  # Returns true if current user is subscribed to the event
+  def subscribed?(course)
+    subscribed_courses.include?(course)
+  end
+
 end

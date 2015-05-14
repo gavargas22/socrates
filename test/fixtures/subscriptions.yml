@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  subscriber_id: 1
+  user_id: 1
+  course_id: 1
+  user_id: 
+  course_id: 
 
 two:
-  subscriber_id: 1
+  user_id: 1
+  course_id: 1
+  user_id: 
+  course_id: 

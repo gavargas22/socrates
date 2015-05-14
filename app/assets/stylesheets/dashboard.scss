@@ -73,6 +73,27 @@ height: 145px;
 .mobile-dashboard-buttons p {
   font-size:15px;
 }
+#badge-alert {
+  position:relative;
+  left:100%;
+  margin-left:-40px;
+  margin-top:-60px;
+  top:60px;
+  width:60px;
+  color:#fff;
+  font-size:40px;
+}
+#badge-alert i {
+  color:#D60323;
+}
+#badge-alert-number {
+  position:absolute;
+  color:#fff;
+  top:13px;
+  left:11px;
+  font-size:0.5em;
+  font-weight:bold;
+}
 // .container-xs-height {
 // display: table;
 // padding-left: 0px;

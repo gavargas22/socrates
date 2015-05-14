@@ -1,10 +1,19 @@
-.dashboard-course-wrapper.container
-	- @courses.each do |course|
-		.course-wrapper-link
-			= link_to course, {:style => "text-decoration:none;"} do
-				.course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
-					.course-title
-						= course.title
-					.course-crn
-						CRN:
-						= course.crn
+.container
+  = render 'action_menu'
+  %h1 Your Courses
+
+  - if current_user.subscribed_courses.count == 0
+    %h3 You are not subscribed to any courses. Why not browse for courses?
+  - elsif current_user.subscribed_courses
+    - current_user.subscribed_courses.each do |course|
+      .course-wrapper-link
+        = link_to course, {:style => "text-decoration:none;"} do
+          .course-wrapper{:style => "background:linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(#{course.course_avatar_url.to_s});padding:10px 15px 10px 15px;background-size:cover;background-repeat:no-repeat;background-position:50% 50%;"}
+            #badge-alert
+              %i.fa.fa-certificate
+              #badge-alert-number 5
+            .course-title
+              = course.title
+            .course-crn
+              CRN:
+              = course.crn

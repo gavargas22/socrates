@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :sections
 
+  resources :subscriptions, only: [:create, :destroy]
+
   get 'sections/:id/courses/:id' => 'courses#show', as: 'section_course'
 
   # resources :subjects, shallow: true do
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
   # 	resources :students
   # end
 
-
+  # ----------------------Routes for course subscription --------------------------
   put 'courses/:id/enroll' => 'courses#enroll', as: 'enroll'
 
   # The priority is based upon order of creation: first created -> highest priority.

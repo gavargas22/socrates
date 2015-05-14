@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @subscription.user_id
+%p
+  %b Course:
+  = @subscription.course_id
+%p
+  %b User:
+  = @subscription.user
+%p
+  %b Course:
+  = @subscription.course
+
+= link_to 'Edit', edit_subscription_path(@subscription)
+\|
+= link_to 'Back', subscriptions_path

@@ -29,27 +29,33 @@ class CoursesController < ApplicationController
 
   def enroll
     # Error if password is blank
-    @course.errors.add(:password, "can not be blank") if params[:password].empty?
+    # @course.errors.add(:password, "can not be blank") if params[:password].empty?
 
-    # Check if the password
+    # Check if the password is correct.
     authenticated = @course.authenticate(params[:password])
     @course.errors.add(:password, "is incorrect") if !authenticated
 
     # Fetch current student
-    student = Student.find(current_user)
+    student = Student.find(current_user.id)
 
     # Check if the user was enrolled previously
-    student_previously_enrolled = @course.students.include?(student)
+    student_previously_enrolled = current_user.subscribed_courses.include?(@course)
 
     respond_to do |format|
-      if student_previously_enrolled
-        format.html { redirect_to course_path, notice: "Student is already registered"}
-      elsif @course.errors.empty? && @course.students << student # Reload if errors exist
-        format.html { redirect_to course_path(@course), notice: "Student was successfully registered"}
+      if authenticated
+        current_user.subscribe(@course)
+        format.html { redirect_to @course, notice: "Welcome to the course!"}
       else
-        format.html { render :sign_up }
+        format.html { redirect_to @course, notice: "Please check the password"}
       end
+      # if @course.errors.empty? && @course.students << student # Reload if errors exist
+      #   current_user.subscribe(@course)
+        # format.html { redirect_to @course, notice: "Welcome to the course!"}
+      # elsif student_previously_enrolled
+      #   format.html { redirect_to @course, notice: "You are already registered to this course."}
+      # end
     end
+
   end
 
   # GET /courses/1/students/1
