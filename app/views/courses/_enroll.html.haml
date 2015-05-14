@@ -1,6 +1,6 @@
 = simple_form_for @course, :url => enroll_path, :method => 'put' do |f|
   .form-group
     = f.input :course_id, :as => :hidden, :input_html => { :value => @course.id }
-    = f.label :password, "Course Access Code"
-    = f.password_field :password, :class => "form-control", :placeholder => "Access Code"
+  .form-group
+    = f.input :password, :class => "form-control", :placeholder => "Course Access Code"
     = submit_tag "Enroll"
