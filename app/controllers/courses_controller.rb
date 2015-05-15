@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
   include SessionsHelper
-
   before_action :set_course, only: [:show, :edit, :update, :destroy, :sign_up, :enroll]
 
   # GET /courses
@@ -27,36 +26,6 @@ class CoursesController < ApplicationController
   def edit
   end
 
-  def enroll
-    # Error if password is blank
-    # @course.errors.add(:password, "can not be blank") if params[:password].empty?
-
-    # Check if the password is correct.
-    authenticated = @course.authenticate(params[:password])
-    @course.errors.add(:password, "is incorrect") if !authenticated
-
-    # Fetch current student
-    student = Student.find(current_user.id)
-
-    # Check if the user was enrolled previously
-    student_previously_enrolled = current_user.subscribed_courses.include?(@course)
-
-    respond_to do |format|
-      if authenticated
-        current_user.subscribe(@course)
-        format.html { redirect_to @course, notice: "Welcome to the course!"}
-      else
-        format.html { redirect_to @course, notice: "Please check the password"}
-      end
-      # if @course.errors.empty? && @course.students << student # Reload if errors exist
-      #   current_user.subscribe(@course)
-        # format.html { redirect_to @course, notice: "Welcome to the course!"}
-      # elsif student_previously_enrolled
-      #   format.html { redirect_to @course, notice: "You are already registered to this course."}
-      # end
-    end
-
-  end
 
   # GET /courses/1/students/1
   def sign_up
@@ -68,6 +37,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     # puts params
     # @course.section_id = params[:section_id]
+
     #Automatically set slug of the course upon creation.
     @course.slug = @course.crn
 
@@ -81,6 +51,7 @@ class CoursesController < ApplicationController
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /courses/1
@@ -106,6 +77,41 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # ============================== Subscription Functions ======================================
+
+  def enroll
+    # Error if password is blank
+    # @course.errors.add(:password, "can not be blank") if params[:password].empty?
+
+    # Authenticate with password input and return the course object, otherwise return false.
+    authenticated = @course.authenticate(params[:password])
+    @course.errors.add(:password, "is incorrect") if !authenticated
+
+    # Fetch current student
+    student = Student.find(current_user.id)
+
+    # Check if the user was enrolled previously
+    student_previously_enrolled = current_user.subscribed_courses.include?(@course)
+
+    respond_to do |format|
+      if authenticated && !student_previously_enrolled
+        current_user.subscribe(@course)
+        format.html { redirect_to course_path(id: @course), notice: "Welcome to the course!"}
+      elsif !authenticated
+        format.html { redirect_to course_path(id: @course), notice: "The password does not match the record!"}
+      end
+      # if @course.errors.empty? && @course.students << student # Reload if errors exist
+      #   current_user.subscribe(@course)
+        # format.html { redirect_to @course, notice: "Welcome to the course!"}
+      # elsif student_previously_enrolled
+      #   format.html { redirect_to @course, notice: "You are already registered to this course."}
+      # end
+    end
+
+  end
+
+  # ===================================================================================================
 
   private
     # Use callbacks to share common setup or constraints between actions.

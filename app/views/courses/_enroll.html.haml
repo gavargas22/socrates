@@ -2,5 +2,5 @@
   .form-group
     = f.input :course_id, :as => :hidden, :input_html => { :value => @course.id }
   .form-group
-    = f.input :password, :class => "form-control", :placeholder => "Course Access Code"
-    = submit_tag "Enroll"
+    = f.password_field :password, :class => "form-control", :placeholder => "Course Access Code"
+    = f.submit 'Enroll', :class => "button btn btn-warning", :style => "width:100%;"

@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
 
   # Subscribe current user to the given event
   def create
-    course = Course.find(params[:course_id])
+    course = Course.friendly.find(params[:course_id])
     current_user.subscribe(course)
     redirect_to course
   end
