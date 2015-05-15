@@ -1,6 +1,7 @@
-= simple_form_for @course, :url => enroll_path, :method => 'put' do |f|
-  .form-group
-    = f.input :course_id, :as => :hidden, :input_html => { :value => @course.id }
-  .form-group
-    = f.password_field :password, :class => "form-control", :placeholder => "Course Access Code"
-    = f.submit 'Enroll', :class => "button btn btn-warning", :style => "width:100%;"
+= simple_form_for current_user.subscribed_courses.build, :url => enroll_path, :method => 'put' do |f|
+	.form-group
+		= f.input :course_id, :as => :hidden, :input_html => { :value => @course.id }
+	.form-group
+		= f.password_field :password, :class => "form-control", :placeholder => "Course Access Code"
+	.form-group
+		= f.submit 'Enroll', :class => "button btn btn-warning", :style => "width:100%;"

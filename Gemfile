@@ -4,7 +4,7 @@ ruby '2.2.1'
 # UTEP SSO
 gem 'utep_sso'
 # Use savon for SOAP client operation
-gem 'savon', '~> 2.8.0'
+gem 'savon'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
@@ -68,18 +68,18 @@ gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem "erb2haml"
+	gem "erb2haml"
 
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+	# Call 'byebug' anywhere in the code to stop execution and get a debugger console
+	gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+	# Access an IRB console on exception pages or by using <%= console %> in views
+	gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+	gem 'spring'
 end
 
 group :production do
-  gem 'mysql2'
+	gem 'mysql2'
 end
