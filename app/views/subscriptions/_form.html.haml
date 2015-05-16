@@ -1,0 +1,11 @@
+= simple_form_for(@subscription) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :user_id
+    = f.input :course_id
+    = f.association :user
+    = f.association :course
+
+  .form-actions
+    = f.button :submit

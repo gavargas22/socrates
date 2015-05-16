@@ -1,69 +1,74 @@
 Rails.application.routes.draw do
 
-  mount RailsAdmin::Engine => '/teacher', as: 'rails_admin'
+	# The priority is based upon order of creation: first created -> highest priority.
+	# See how all your routes lay out with "rake routes".
 
-  resources :subjects
+	# mount RailsAdmin::Engine => '/teacher', as: 'rails_admin'
 
-  resources :staffs
+	resources :subjects
 
-  resources :students
+	resources :staffs
 
-  resources :faculties
+	resources :students
 
-  resources :users
+	resources :faculties
 
-  resources :courses
+	resources :users
 
-  resources :sections
+	resources :courses
 
-  get 'sections/:id/courses/:id' => 'courses#show', as: 'section_course'
+	resources :sections
 
-  # resources :subjects, shallow: true do
-  # 	resources :courses
-  # end
-  #
-  # resources :courses, shallow: true do
-  # 	resources :sections
-  # end
-  #
-  # resources :sections, shallow: true do
-  # 	resources :students
-  # end
+	resources :subscriptions, only: [:create, :destroy]
+
+	# get 'sections/:id/courses/:id' => 'courses#show', as: 'section_course'
+
+	# resources :subjects, shallow: true do
+	# 	resources :courses
+	# end
+	#
+	# resources :courses, shallow: true do
+	# 	resources :sections
+	# end
+	#
+	# resources :sections, shallow: true do
+	# 	resources :students
+	# end
+
+	# ----------------------Routes for course subscription --------------------------
+	put 'courses/:id/enroll' => 'courses#enroll', as: 'enroll'
+	get 'courses/:id/exit' => 'subscriptions#destroy', as: 'leave_course'
+
+	# --------------------------------------------------------------------------------
 
 
-  put 'courses/:id/enroll' => 'courses#enroll', as: 'enroll'
+	# --------------------------- Routes for the static pages -------------------------
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+	root 'static_pages#index'
 
-  # You can have the root of your site routed with "root"
-  root 'static_pages#index'
+	# ---------------------------------------------------------------------------------
 
-  # Dashboard Routes
-  resources :dashboard, only: [:index]
-  get 'dashboard/home' => 'dashboard#home'
-  get 'dashboard/courses' => 'dashboard#courses'
+	# ------------------------------Dashboard Routes-----------------------------------
+	resources :dashboard, only: [:index]
+	get 'dashboard/home' => 'dashboard#home'
+	get 'dashboard/courses' => 'dashboard#courses'
+	# ---------------------------------------------------------------------------------
 
-  # Dashboard for Teachers
-  get 'teacher/' => 'teacher#home'
+	#Single Sign On Routes
+	match 'login', to: 'sessions#new', as: 'login', via: [:get, :post]
+	match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]
+	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  #Single Sign On Routes
-  match 'login', to: 'sessions#new', as: 'login', via: [:get, :post]
-  match '/create_session', to: 'sessions#create', as: 'create_session', via: [:get, :post]
-  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+	#--------------------------------Survey Plugin & System--------------------------------
+	scope module: 'contests' do
+		resources :surveys
+		resources :attempts
+	end
 
-  #Survey Plugin & System
-  # match '/surveys/new', to: 'contests/surveys#new', as: 'new_survey', via: [:get, :post]
-  # match '/surveys', to: 'contests/surveys#index', via: [:get, :post]
-  # match '/surveys/:id', to: 'contests/surveys#show', via: [:get, :post]
+	match '/surveys/new', to: 'contests/surveys#new', as: 'new_question', via: [:get, :post]
+	get '/surveys/', to: 'contests/surveys#show', as: 'contests_surveys', via: [:get, :post]
+	get '/surveys/:id', to: 'contests/surveys#show', as: 'show_survey', via: [:get, :post]
 
-  scope module: 'contests' do
-    resources :surveys
-    resources :attempts
-  end
-
-  match '/surveys/new', to: 'contests/surveys#new', as: 'new_question', via: [:get, :post]
-  get '/surveys/', to: 'contests/surveys#show', as: 'contests_surveys', via: [:get, :post]
-  get '/surveys/:id', to: 'contests/surveys#show', as: 'show_survey', via: [:get, :post]
+	# ------------------------------------------------------------------------------------------
 
 end

@@ -1,8 +1,14 @@
 .container
-  -# .course-navigation.container
-  -#   .nav-buttons
-  -#     =link_to 'Back', courses_path
-  %p#notice= notice
+  - flash.each do |key, value|
+    %div{ :class => flash_class(key) }
+      = value
+
+  -# %p#notice= notice
+  -# - if @course.errors.any?
+  -#   .alert.alert-danger{:role => "alert"}
+  -#     %span{:class => "glyphicon glyphicon-exclamation-sign"}
+  -#     - @course.errors.full_messages.each do |msg|
+  -#       = msg
 
   .row
     .course-title.col-sm-12.col-lg-7
@@ -11,14 +17,19 @@
           = @course.title
         .course-description
           = @course.description
-        .course-signup
-          %button.btn.btn-lg.button-outline{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#enroll_dialog' } Sign Up
-    .col-sm-12.col-lg-5
-      %h2 Details
-      %p Course: #{@course.crn}
+        - if !current_user.subscribed?(@course)
+          .course-signup
+            %button.btn.btn-lg.button-outline{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#enroll_dialog' } Sign Up
+    - if !current_user.subscribed?(@course)
+      .col-sm-12.col-lg-5
+        %h2 Details
+        %p Course: #{@course.crn}
+    - else
+      .col-sm-12.col-lg-7
+        .course-active-questions
+          %h2 Active Questions
+          = link_to "Leave Course", leave_course_path
 
-    -# .course-active-questions
-    -#   %h2 Active Questions
 
 
 .modal.fade{ id: 'enroll_dialog', tabindex: '-1', role: 'dialog', 'aria-labelledby' => 'ModalLabel', 'aria-hidden' => 'true' }
@@ -28,10 +39,15 @@
         %h4.modal-title{ id: 'ModalLabel' }
           -# = @course.section.id
       .modal-body
-        = render 'enroll'
+        - if current_user.subscribed?(@course)
+          %h1 You are already subscribed
+        - else
+          %h2 Please enter the course access code blow.
+          = render 'enroll'
       .modal-footer
-        %button{ type: "button", class: "btn btn-default", 'data-dismiss' => "modal" } Close
-        %button{ type: "button", class: "btn btn-primary"} Sign Up
+        %button{ type: "button", class: "btn btn-default", 'data-dismiss' => "modal" } Close Window
+
+
 
 
 

@@ -319,7 +319,7 @@ DEPENDENCIES
   rails_admin
   rmagick
   sass-rails
-  savon (~> 2.8.0)
+  savon
   sdoc (~> 0.4.0)
   simple_form
   spring

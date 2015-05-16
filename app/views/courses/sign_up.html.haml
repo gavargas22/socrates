@@ -1,0 +1,7 @@
+- if @course.errors.any?
+  .alert.alert-danger{:role => "alert"}
+    %span{:class => "glyphicon glyphicon-exclamation-sign"}
+    - @course.errors.full_messages.each do |msg|
+      = msg
+
+%h1 hello
