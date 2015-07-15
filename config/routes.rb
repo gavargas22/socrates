@@ -60,14 +60,14 @@ Rails.application.routes.draw do
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
 	#--------------------------------Survey Plugin & System--------------------------------
-	scope module: 'contests' do
-		resources :surveys
-		resources :attempts
-	end
-
-	match '/surveys/new', to: 'contests/surveys#new', as: 'new_question', via: [:get, :post]
-	get '/surveys/', to: 'contests/surveys#show', as: 'contests_surveys', via: [:get, :post]
-	get '/surveys/:id', to: 'contests/surveys#show', as: 'show_survey', via: [:get, :post]
+	# scope module: 'contests' do
+	# 	resources :surveys
+	# 	resources :attempts
+	# end
+	#
+	# match '/surveys/new', to: 'contests/surveys#new', as: 'new_question', via: [:get, :post]
+	# get '/surveys/', to: 'contests/surveys#show', as: 'contests_surveys', via: [:get, :post]
+	# get '/surveys/:id', to: 'contests/surveys#show', as: 'show_survey', via: [:get, :post]
 
 	# ------------------------------------------------------------------------------------------
 

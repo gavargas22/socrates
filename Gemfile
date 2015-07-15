@@ -30,10 +30,6 @@ gem "rmagick"
 gem "carrierwave"
 # Font awesome support
 gem "font-awesome-rails"
-# Rapidfire Quiz and questions.
-gem "survey", "~> 0.1"
-# Teacher Backend
-gem 'rails_admin'
 #Simple Form
 gem 'simple_form'
 
