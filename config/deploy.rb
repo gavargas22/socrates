@@ -31,13 +31,22 @@ namespace :deploy do
 		end
 	end
 
+	task :fix_absent_manifest_bug do
+		on roles(:web) do
+			within release_path do  execute :touch,
+				release_path.join('public', fetch(:assets_prefix), 'manifest-fix.temp')
+			end
+	 end
+	end
+
 	after :publishing, :restart
 
 	after :restart, :clear_cache do
 		on roles(:web), in: :groups, limit: 3, wait: 10 do
-			within release_path do  execute :touch,
-				release_path.join('public', fetch(:assets_prefix), 'manifest-fix.temp')
-			end
+			# Here we can do anything such as:
+			# within release_path do
+			#   execute :rake, 'cache:clear'
+			# end
 		end
 	end
 
