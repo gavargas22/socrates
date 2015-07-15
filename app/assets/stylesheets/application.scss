@@ -17,17 +17,21 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+ // @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
  @import "font-awesome";
 
+img {
+	max-width: 100%;
+	height: auto;
+}
 .spacing-from-header {
-  padding-top:50px;
+	padding-top:50px;
 }
 .navbar-default {
-  background-color:transparent !important;
-  border:none;
+	background-color:transparent !important;
+	border:none;
 }
 .page-titles {
-  font-size:4em;
-  font-weight:bold;
+	font-size:4em;
+	font-weight:bold;
 }
