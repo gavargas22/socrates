@@ -1,32 +1,33 @@
-.container
-  .page-titles Subjects
-  %p
-  - @subjects.each do |subject|
-    = link_to subject, {:style => "text-decoration:none;"} do
-      .subject-name
-        = subject.name
+.dashboard-wrapper
+	.dashboard-menu-wrapper
+		= render './layouts/page_title'
+	.container.page-content-wrapper
+		- @subjects.each do |subject|
+			= link_to subject, {:style => "text-decoration:none;"} do
+				.subject-name
+					= subject.name
 
 
-  -# %table
-  -#   %thead
-  -#     %tr
-  -#       %th Name
-  -#       %th Short name
-  -#       %th Section
-  -#       %th
-  -#       %th
-  -#       %th
-  -#
-  -#   %tbody
-  -#     - @subjects.each do |subject|
-  -#       %tr
-  -#         %td= subject.name
-  -#         %td= subject.short_name
-  -#         -# %td= subject.section
-  -#         %td= link_to 'Show', subject
-  -#         %td= link_to 'Edit', edit_subject_path(subject)
-  -#         %td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  -#
-  -# %br
+	-# %table
+	-#   %thead
+	-#     %tr
+	-#       %th Name
+	-#       %th Short name
+	-#       %th Section
+	-#       %th
+	-#       %th
+	-#       %th
+	-#
+	-#   %tbody
+	-#     - @subjects.each do |subject|
+	-#       %tr
+	-#         %td= subject.name
+	-#         %td= subject.short_name
+	-#         -# %td= subject.section
+	-#         %td= link_to 'Show', subject
+	-#         %td= link_to 'Edit', edit_subject_path(subject)
+	-#         %td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
+	-#
+	-# %br
 
-  = link_to 'New Subject', new_subject_path
+	= link_to 'New Subject', new_subject_path

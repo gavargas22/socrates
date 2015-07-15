@@ -19,6 +19,8 @@
  @import "bootstrap";
  // @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
  @import "font-awesome";
+ @import "colors";
+
 
 img {
 	max-width: 100%;
@@ -31,7 +33,22 @@ img {
 	background-color:transparent !important;
 	border:none;
 }
-.page-titles {
-	font-size:4em;
-	font-weight:bold;
+.page-content-wrapper {
+	margin-top: 40px;
+	text-align: center;
+	font-weight: bold;
+	font-size:1em;
 }
+.page-content-wrapper a {
+	color:#333;
+}
+.page-content-wrapper a:hover {
+	background: $socrates-yellow;
+}
+
+// Navbar Styling ////////////////////
+ul#custom-navbar li.custom-nav-pills a {
+	line-height: 30px;
+}
+
+/////////////////////////////////////

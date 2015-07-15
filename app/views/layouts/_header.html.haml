@@ -2,7 +2,7 @@
 	.container
 		.utep-app-title.app-text
 			= link_to root_path do
-				%img{:alt => "Socrates", :src => "/assets/socrates_white.png"}
+				%img{:alt => "Socrates", :src => "/assets/socrates_white_helv.png"}
 		.collapse-button-wrapper
 			%button.navbar-toggle.collapsed.utep-menu-toggle.main-responsive-menu-toggle{:onClick => "toggleClassForMenu();", :type => "button"}
 				%span.sr-only Toggle navigation
@@ -21,8 +21,8 @@
 					%li.custom-nav-pills{:role => "presentation"}
 						= link_to 'About', root_path
 					- if logged_in?
-						%li.custom-nav-pills{:style => "margin-top:-3px"}
+						%li.custom-nav-pills
 							= link_to 'Log Out', signout_path
 					- else
-						%li.custom-nav-pills{:style => "margin-top:-3px"}
+						%li.custom-nav-pills
 							= link_to 'Log In', login_path

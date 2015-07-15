@@ -1,0 +1,54 @@
+.utep-ident-footer
+  .utep-orange-line
+  .footer-wrapper
+    .container.utep-footer
+      .row
+        .col-sm-6.footer-elements-spacer.footer-links-column
+          .utep-logo-wrapper
+            .utep-responsive-img-wrapper
+              = image_tag("utep_footer_logo.png")
+          .utep-orange-line
+          .utep-footer-text
+          %h1{:style => "margin-bottom:0;font-size:27px;"} THE UNIVERSITY OF TEXAS AT EL PASO
+          %p
+            500 West University Avenue
+            %br
+            El Paso, TX 79968
+            %br
+            915-747-5000
+          .utep-orange-line
+
+        .col-sm-6.footer-elements-spacer.footer-social-wrapper
+          .utep-social-buttons.clearfix
+            .utep-social-button-elements
+              %a{:href => "http://facebook.com"}
+                %i.fa.fa-facebook
+            .utep-social-button-elements
+              %a{:href => "http://twitter.com"}
+                %i.fa.fa-twitter
+            .utep-social-button-elements
+              %a{:href => "http://instagram.com"}
+                %i.fa.fa-instagram
+            .utep-social-button-elements
+              %a{:href => "http://youtube.com"}
+                %i.fa.fa-youtube-play
+
+      .container
+        .utep-footer-links
+          %ul.custom-footer-pills
+            %li=link_to 'Accessibility /', root_url
+            %li=link_to 'Campus Alerts /', root_url
+            %li=link_to 'CLERY Crime Statistics /', root_url
+            %li=link_to 'Employment /', root_url
+            %li=link_to 'Fraud Reporting /', root_url
+            %li=link_to 'Required Links /', root_url
+            %li=link_to 'State of Texas /', root_url
+            %li=link_to 'UT System /', root_url
+            %li=link_to 'Site Feedback /', root_url
+
+      .utep-footer-copyright (c) 2015 The University of Texas at El Paso
+
+    .footer-colored-bar-wrapper
+      .footer-utep-color-bar#orange
+      .footer-utep-color-bar#grey
+      .footer-utep-color-bar#blue
