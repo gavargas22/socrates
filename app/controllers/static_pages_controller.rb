@@ -1,13 +1,12 @@
 class StaticPagesController < ApplicationController
-  include SessionsHelper
-  layout "home"
+	include SessionsHelper
 
-  before_action :check_login
+	before_action :check_login
 
-  def index
-  end
+	def index
+	end
 
-  def check_login
-    redirect_to dashboard_index_path if logged_in?
-  end
+	def check_login
+		redirect_to dashboard_index_path if logged_in?
+	end
 end

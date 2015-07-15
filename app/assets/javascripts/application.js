@@ -18,3 +18,8 @@
 //= require angular
 //= require bootstrap-sprockets
 //= require chosen-jquery
+
+// Toggling class for the responsive app menu.
+function toggleClassForMenu() {
+	$( "div#app-responsive-menu" ).toggleClass( "closed" );
+}

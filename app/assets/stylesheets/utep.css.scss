@@ -1,0 +1,298 @@
+/*UTEP Color Variables*/
+$utep-orange: #ff5600;
+$utep-blue: #002147;
+
+
+.header-color-wrapper {
+	background: #ff5600;
+	padding-bottom: 15px;
+}
+.utep-ident-logo {
+	margin-top: 10px;
+}
+.utep-ident-logo>img{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+.utep-right-links {
+	text-transform: uppercase;
+	// font-family: "Impact", Helvetica, Arial sans-serif;
+	font-family: 'Open Sans', Helvetica, Arial sans-serif;
+	height: 60px;
+}
+.utep-right-links a {
+	color: #fff;
+	font-size: 10px;
+}
+a.utep-brand {
+	width: 400px;
+}
+a.utep-brand:hover {
+	background-color: transparent;
+}
+ul#secondary-menu {
+	list-style: none;
+}
+ul#secondary-menu li {
+	float: right;
+	margin: 2px 5px;
+}
+ul#secondary-menu li a {
+	text-decoration: none;
+	// font-family: "Impact", Helvetica, Arial sans-serif;
+	font-family: "Open Sans", Helvetica, Arial sans-serif;
+}
+ul#secondary-menu li a:hover {
+	background-color: #fff;
+	color: #ff5600;
+}
+ul#main-utep-menu {
+	list-style: none;
+	margin-left: -25px;
+	padding-bottom: 15px;
+}
+ul#main-utep-menu li {
+	float: left;
+}
+ul#main-utep-menu li a {
+	color: #fff;
+	padding: 2px 10px;
+	text-transform: uppercase;
+	// font-family: "Impact", Helvetica, Arial sans-serif;
+	font-family: "Open Sans", Helvetica, Arial sans-serif;
+}
+ul#main-utep-menu li a:hover {
+	background-color: transparent;
+}
+li#search-btn a {
+	border: 1px solid #fff;
+	padding: 5px;
+}
+.utep-app-menu {
+	// background-color: #ff8800;
+	background-color: #ff5600;
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+}
+.utep-app-title {
+	height: 60px;
+	float: left;
+}
+.utep-app-responsive-title {
+	float: none;
+	text-align: center;
+}
+.app-text {
+	padding-right: 60px;
+	width: 260px;
+}
+.app-text a {
+	color: #ff5600;
+	font-size: 2em;
+	text-decoration: none;
+	line-height: 2em;
+	// font-family: "Impact", Helvetica, Arial sans-serif;
+	font-family: "Open Sans", Helvetica, Arial sans-serif;
+}
+.app-text a:hover {
+	background-color: transparent;
+}
+
+// UTEP Footer
+.utep-ident-footer {
+	margin-top: 50px;
+}
+.utep-logo-wrapper {
+	height: 90px;
+	padding:16px 0;
+}
+.utep-responsive-img-wrapper {
+	width: 90px;
+}
+.utep-logo-wrapper>img{
+	max-width: 100%;
+	height: auto;
+}
+.utep-footer-text {
+	margin-bottom: 10px;
+}
+.utep-orange-line {
+	background-color:#ff5600;
+	height: 3px;
+}
+.footer-wrapper {
+	background-color: #f2f2f2;
+}
+.utep-footer {
+	color: #fff;
+}
+ul.footer-links-column {
+	float: left;
+	list-style: none;
+	margin-right:35px;
+}
+ul.footer-links-column li {
+	margin-left: -40px;
+	text-transform: uppercase;
+}
+
+ul.custom-footer-pills li a {
+	font-size:10px;
+	color:#ff5600;
+}
+ul.footer-links-column li a {
+	color: #ff5600;
+}
+ul.custom-footer-pills {
+	list-style: none;
+	margin-left: -50px;
+}
+ul.custom-footer-pills li {
+	float: right;
+	width: auto;
+	margin-right: 15px;
+}
+nav.custom-footer-pills li a {
+	padding: 0;
+}
+.utep-footer-links {
+	margin: 30px auto 0 auto;
+}
+.footer-social-wrapper {
+	margin-top: 100px;
+}
+.footer-elements-spacer {
+	color:#ff5600;
+}
+.utep-social-button-elements  {
+	float: right;
+	margin: 5px 0 5px 20px;
+}
+.utep-social-button-elements a {
+	color: #ff5600;
+	padding: 5px 15px;
+	font-size: 30px;
+		border: 3px solid #ff5600;
+}
+.utep-social-button-elements a:hover {
+	background-color: transparent;
+}
+.utep-footer-copyright {
+	font-size: 10px;
+	text-align: center;
+	color: #ff5600;
+	margin: 10px 0;
+}
+.footer-utep-color-bar {
+	width: 33.33%;
+	float: left;
+	height: 15px;
+}
+.footer-utep-color-bar#orange {
+	background-color: $utep-orange;
+}
+.footer-utep-color-bar#grey {
+	background-color: #b2b4b3;
+}
+.footer-utep-color-bar#blue {
+	background-color: #002147;
+}
+
+// Responsive Menu
+.utep-responsive-menu {
+	background-color: white;
+	color: #fff;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+.responsive-list-title {
+	color: #ff5600;
+}
+ul.responsive-list-first {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: #FF7400;
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+}
+.responsive-list-first li {
+	height: 50px;
+	line-height: 50px;
+}
+.responsive-list-first a {
+	color: #ffffff;
+	display: block;
+	text-decoration: none;
+	padding: 0 15px;
+	-webkit-box-shadow: 3px 0 #fff inset;
+	box-shadow: 3px 0 #fff inset;
+}
+
+// Toggle
+button.utep-menu-toggle {
+	margin: 0;
+	background-color: #FF7400;
+	color: #fff;
+	-webkit-border-bottom-right-radius: 5px !important;
+	-webkit-border-bottom-left-radius: 5px !important;
+	-moz-border-radius-bottomright: 5px !important;
+	-moz-border-radius-bottomleft: 5px !important;
+	border-bottom-right-radius: 5px !important;
+	border-bottom-left-radius: 5px !important;
+	-webkit-border-top-right-radius: 0px !important;
+	-webkit-border-top-left-radius: 0px !important;
+	-moz-border-radius-topright: 0px !important;
+	-moz-border-radius-topleft: 0px !important;
+	border-top-right-radius: 0px !important;
+	border-top-left-radius: 0px !important;
+}
+button.utep-menu-toggle .icon-bar {
+	background-color: #fff;
+}
+
+.utep-app-responsive-menu {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	// background: rgba(255,86,0,0.7);
+	background: rgba(0,0,0,0.85);
+	z-index: 1;
+	padding-top: 78px;
+}
+button.main-responsive-menu-toggle {
+	margin:13px 5px 8px 0;
+	-webkit-border-radius: 5px !important;
+	-moz-border-radius: 5px !important;
+	border-radius: 5px !important;
+	z-index: 1;
+}
+ul#custom-navbar li a {
+	color: #fff;
+	font-size:18px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.closed {
+	visibility: hidden;
+}
+
+
+// Main Menu CSS/////////////////////////////
+ul.custom-menu-wrapper a {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.navbar-nav > li > a {
+	padding-top: 22px;
+	padding-bottom: 15px;
+}
+////////////////////////////////////////////

@@ -1,0 +1,49 @@
+#utep-first-menu.collapse
+	%ul.responsive-list-first
+		%li=link_to 'My UTEP', root_url
+		%li=link_to 'Alumni', root_url
+		%li=link_to 'Parents', root_url
+		%li=link_to 'Faculty & Staff', root_url
+		%li=link_to 'Students', root_url
+.header-color-wrapper
+	.container
+		.utep-ident-logo.col-lg-5.col-xs-8.pull-left.hidden-sm.hidden-xs
+			= link_to root_path, {:class => "utep-brand"} do
+				= image_tag "utep_retina.png"
+		.utep-ident-logo.col-lg-5.col-xs-6.pull-left.hidden-md.hidden-lg
+			= link_to root_path, {:class => "utep-brand"} do
+				= image_tag "utep_retina_resp.png"
+
+		.utep-right-links.pull-right.col-lg-7.col-sm-4
+
+			%button.navbar-toggle.collapsed.utep-menu-toggle{"data-target" => "#utep-first-menu", "data-toggle" => "collapse", :type => "button"}
+				%span.sr-only Toggle navigation
+				%span UTEP MENU
+				%i.fa.fa-caret-down
+				-# %span.icon-bar
+				-# %span.icon-bar
+				-# %span.icon-bar
+
+			.collapse.navbar-collapse#quick-links
+				%ul#secondary-menu
+					%li#search-btn
+						=link_to 'Quick Links', root_url
+					%li#search-btn
+						=link_to 'My UTEP', root_url
+					%li#search-btn{:style => "width:25px;"}
+						=link_to root_url do
+							%i.fa.fa-search
+					%li=link_to 'Alumni', root_url
+					%li=link_to 'Parents', root_url
+					%li=link_to 'Faculty & Staff', root_url
+					%li=link_to 'Students', root_url
+
+	-# .container.collapse.navbar-collapse
+	-# 	.utep-main-links
+	-# 		%ul#main-utep-menu
+	-# 			%li=link_to 'About UTEP', root_url
+	-# 			%li=link_to 'Academics', root_url
+	-# 			%li=link_to 'Admissions', root_url
+	-# 			%li=link_to 'Student Life', root_url
+	-# 			%li=link_to 'Research', root_url
+	-# 			%li=link_to 'Athletics', root_url

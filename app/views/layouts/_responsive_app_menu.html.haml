@@ -1,0 +1,29 @@
+#app-responsive-menu.utep-app-responsive-menu.visible-xs.visible-sm.closed
+	.container
+		.utep-app-responsive-title.app-text
+			= link_to root_path do
+				%img{:alt => "Socrates", :src => "/assets/socrates_white_helv.png"}
+		.utep-app-responsive-title.nav-menu
+			%ul#custom-navbar.nav.navbar-nav.navbar-right.custom-menu-responsive-wrapper
+				%li.custom-nav-pills{:role => "presentation"}
+					= link_to "Home", root_path
+				%li.custom-nav-pills{:role => "presentation"}
+					= link_to "Dashboard" , dashboard_index_path
+				%li.custom-nav-pills{:role => "presentation"}
+					= link_to 'Courses', courses_path
+				%li.custom-nav-pills{:role => "presentation"}
+					= link_to 'About', root_path
+				- if logged_in?
+					%li.custom-nav-pills
+						= link_to 'Log Out', signout_path
+				- else
+					%li.custom-nav-pills
+						= link_to 'Log In', login_path
+
+-# %button.navbar-toggle.collapsed.utep-menu-toggle{"data-target" => "#utep-first-menu", "data-toggle" => "collapse", :type => "button"}
+-#   %span.sr-only Toggle navigation
+-#   %span UTEP MENU
+-#   %i.fa.fa-caret-down
+-#   -# %span.icon-bar
+-#   -# %span.icon-bar
+-#   -# %span.icon-bar

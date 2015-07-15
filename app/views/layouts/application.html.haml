@@ -8,6 +8,7 @@
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
 		= csrf_meta_tags
 	%body
-		= render "layouts/header", except: :home
+		= render './layouts/responsive_app_menu'
+		= render './layouts/utep_header'
+		= render "layouts/header"
 		= yield
-		-# = debug(params)

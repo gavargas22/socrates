@@ -1,25 +1,28 @@
-.navbar.navbar-custom
-  .navbar-inner{:style => "border-bottom: 2px solid #c3c3c3;"}
-    .container
-      %a#main_nav_btn.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.brand{:href => "/"}
-        %img{:alt => "Socrates", :src => "/assets/socrates.png"}
-      .mobile-bg
-        #application_menu.nav-collapse.collapse{:style => "height: 0px;background-color:#111;"}
-          %ul.nav.clearfix
-            %li
-              = link_to 'Home', root_url
-            %li
-              = link_to 'Dashboard', dashboard_index_path
-          %ul.nav.clearfix
-            %li.top-balance
-              = link_to 'Courses', courses_path
-            - if logged_in?
-              %li.signup{:style => "margin-top:-3px"}
-                = link_to 'Log Out', signout_path
-            - else
-              %li.signup{:style => "margin-top:-3px"}
-                = link_to 'Log In', login_path
+.utep-app-menu
+	.container
+		.utep-app-title.app-text
+			= link_to root_path do
+				%img{:alt => "Socrates", :src => "/assets/socrates_white_helv.png"}
+		.collapse-button-wrapper
+			%button.navbar-toggle.collapsed.utep-menu-toggle.main-responsive-menu-toggle{:onClick => "toggleClassForMenu();", :type => "button"}
+				%span.sr-only Toggle navigation
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+		.utep-app-title.nav-menu
+			#bs-example-navbar-collapse-1.collapse.navbar-collapse
+				%ul#custom-navbar.nav.navbar-nav.navbar-right.custom-menu-wrapper
+					%li.custom-nav-pills{:role => "presentation"}
+						= link_to "Home", root_path
+					%li.custom-nav-pills{:role => "presentation"}
+						= link_to "Dashboard" , dashboard_index_path
+					%li.custom-nav-pills{:role => "presentation"}
+						= link_to 'Courses', courses_path
+					%li.custom-nav-pills{:role => "presentation"}
+						= link_to 'About', root_path
+					- if logged_in?
+						%li.custom-nav-pills
+							= link_to 'Log Out', signout_path
+					- else
+						%li.custom-nav-pills
+							= link_to 'Log In', login_path
