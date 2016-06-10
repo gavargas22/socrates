@@ -35,6 +35,6 @@ The webapp will now be available at `dev.socrates.utep.edu` with full SSO capabi
 
 ## Copyright
 
-Socrates was developed by Alan Wernick, Sergio Guerrero, Mario Robles and Guillermo Vargas
+Socrates was developed by Alan Wernick and Guillermo Vargas
 
 Copyright 2015 [Academic technologies](http://at.utep.edu/). See [MIT-LICENCE](#) for details.
